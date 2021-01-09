@@ -1,3 +1,3 @@
 export function callApi() {
-    return Promise.resolve(123);
+  return Promise.resolve(123);
 }
