@@ -1,9 +1,14 @@
-ErrorPage.getInitialProps = ({ res, err }) => {
+interface inputType {
+  res: { statusCode: string };
+  err: { statusCode: string };
+}
+
+ErrorPage.getInitialProps = ({ res, err }: inputType) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : null;
   return { statusCode };
 };
 
-export default function ErrorPage({ statusCode }) {
+export default function ErrorPage({ statusCode }: any) {
   return (
     <div>
       {statusCode === 404 && '페이지를 찾을 수 없습니다.'}

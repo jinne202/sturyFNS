@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Icon from '../static/ICON.png';
+// import Icon from '../static/ICON.png';
 import Link from 'next/link';
 
 function Page1(): JSX.Element {
@@ -9,7 +9,7 @@ function Page1(): JSX.Element {
         <a>page2로 이동</a>
       </Link>
       <p>This is home page</p>
-      <img src={Icon} />
+      <img src="/ICON.png" />
       <Head>
         <title>page1</title>
       </Head>
