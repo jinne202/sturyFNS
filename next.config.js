@@ -1,18 +1,17 @@
-module.exports = {
-  webpack: (config) => {
+const withImages = require('next-images')
+module.exports = withImages({
+  webpack(config, options) {
     config.module.rules.push({
-      test: /.(png|jpg)$/,
+      test: /\.(ogg|mp3|wav|mpe?g)$/i,
       use: [
         {
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
-            name: '[path][name].[ext]?[hash]',
-            emitFile: false,
-            publicPath: '/',
+            name: '[name]-[hash].[ext]',
           },
         },
       ],
     });
     return config;
-  },
-};
+  }
+})
