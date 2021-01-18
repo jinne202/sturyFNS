@@ -1,10 +1,11 @@
 import NavLayout from '../components/NavLayout';
+import LeftMenu from '../components/LeftMenu';
 
 export default function Home() {
   return (
       <div>
           <NavLayout>
-          메인
+            <LeftMenu/>
           </NavLayout>
       </div>
   )

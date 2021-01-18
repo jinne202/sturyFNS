@@ -1,7 +1,10 @@
 import React, { ReactNode, FC } from "react";
 import styled from 'styled-components';
+import DarkMode from './DarkMode';
 
 const logo = require('../../static/logo.png');
+
+
 
 type PropTypes = {
     children: ReactNode;
@@ -15,14 +18,7 @@ const NavLayout: FC<PropTypes> = ({ children }) => {
                     <img src={logo} alt="로고"/>
                     <h1>FNS</h1>
                 </LeftNav>
-                <MiddleColorMode>
-                    <LightButton>
-                        LIGHT
-                    </LightButton>
-                    <DarkButton>
-                        DARK
-                    </DarkButton>
-                </MiddleColorMode>
+                <DarkMode/>
                 <RightNav>
                     <LoginButton>LOGIN</LoginButton>
                     <RegisterButton>REGISTER</RegisterButton>
@@ -43,7 +39,7 @@ const NavWrapper = styled.div`
 const Nav = styled.div`
     display : flex;
     margin : 0 100px;
-    border-bottom : 8px solid black;
+    border-bottom : 8px solid ${({ theme }) => theme.mode.borderColor};
 `
 
 const LeftNav = styled.div`
@@ -56,37 +52,13 @@ const LeftNav = styled.div`
         font-size : 36px;
         font-weight : 800;
         padding : 2px 0 0 0;
+        color : ${({ theme }) => theme.mode.textColor};
     }
 
     & > img {
         width : 40px;
         height : 39px;
     }
-`
-
-const MiddleColorMode = styled.div`
-    display : flex;
-    text-align : center;
-    line-height : 22px;
-    font-size : 14px;
-    padding : 42px 0 25px 0;
-    margin : 0 0 0 39px;
-    font-weight : 700;
-`
-
-const LightButton = styled.div`
-    width : 69px;
-    height : 27px;
-    background-color : black;
-    border : 2px solid black;
-    color : white;
-`
-
-const DarkButton = styled.div`
-    width : 69px;
-    height : 27px;
-    background-color : white;
-    border : 2px solid black;
 `
 
 const RightNav = styled.div`
@@ -96,6 +68,7 @@ const RightNav = styled.div`
     padding : 45px 0 25px 0;
     font-size : 18px;
     font-family: 'Poppins', sans-serif;
+    color : ${({ theme }) => theme.mode.textColor};
 `
 
 const LoginButton = styled.div`

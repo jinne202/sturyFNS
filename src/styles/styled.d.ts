@@ -5,6 +5,7 @@ declare module 'styled-components' {
     mode : {
       mainBg: string;
       textColor: string;
+      borderColor : string;
     }
   }
 }

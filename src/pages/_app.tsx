@@ -1,18 +1,25 @@
-// import { Provider } from "react-redux";
-// import { store } from "../redux";
 import type { AppProps /*, AppContext */ } from 'next/app';
 import GlobalStyles from '../styles/global-styles';
-import React, { useState, useEffect } from 'react'
+import wrapper from '../store/configureStore';
 import { ThemeProvider } from 'styled-components'
+import { useSelector } from 'react-redux';
+import { light, dark } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
+    const { themeMode } = useSelector((state:any) => state.layoutReducer);
+    const theme = themeMode === "light"
+      ? { mode: light }
+      : { mode: dark };
+
     return (
         <>
+            <ThemeProvider theme={theme}>
                 <GlobalStyles/>
                 <Component {...pageProps} />
+            </ThemeProvider>
         </>
     );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
