@@ -1,22 +1,29 @@
 import React from "react";
+import Link from 'next/link';
 import styled from "styled-components";
 
 const LeftMenu = () => {
     return (
         <LeftMenuWrapper>
             <MenuTitleWrapper>
-                <SnapTitle>
+                <Link href="/snapIndex">
+                <MenuIndexTitle>
                     SNAP
                     <TitleBorder></TitleBorder>
-                </SnapTitle>
-                <SnapTitle>
+                </MenuIndexTitle>
+                </Link>
+                <Link href="/lookbookIndex">
+                <MenuIndexTitle>
                     LOOKBOOK
                     <TitleBorderLookBook></TitleBorderLookBook>
-                </SnapTitle>
-                <SnapTitle>
+                </MenuIndexTitle>
+                </Link>
+                <Link href="/jobIndex">
+                <MenuIndexTitle>
                     JOB
                     <TitleBorderJob></TitleBorderJob>
-                </SnapTitle>
+                </MenuIndexTitle>
+                </Link>
             </MenuTitleWrapper>
             <svg width="535" height="842" viewBox="0 0 535 948" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M407.744 437.496C441.851 484.591 442.13 549.77 414.428 617.391C386.74 684.979 331.196 754.686 254.289 810.383C177.382 866.079 93.8266 897.107 20.9741 902.331C-51.9139 907.557 -113.753 886.96 -147.86 839.864C-181.967 792.769 -182.246 727.59 -154.545 659.969C-126.856 592.381 -71.3126 522.674 5.59483 466.977C82.5023 411.281 166.057 380.253 238.91 375.029C311.798 369.803 373.637 390.4 407.744 437.496Z" stroke="#FF7E21" stroke-width="4"/>
@@ -29,7 +36,7 @@ const LeftMenu = () => {
 
 const LeftMenuWrapper = styled.div`
     margin : 20px 0 0 0;
-    position : relative;
+    position : absolute;
     width : 30%;
 `
 
@@ -41,10 +48,11 @@ const MenuTitleWrapper = styled.div`
     position : absolute;
 `
 
-const SnapTitle = styled.h2`
+const MenuIndexTitle = styled.h2`
     position : relative;
     margin : 0 0 80px 0;
     color : ${({ theme }) => theme.mode.textColor};
+    cursor : pointer;
 `
 
 const TitleBorder = styled.span`

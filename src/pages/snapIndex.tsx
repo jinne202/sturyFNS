@@ -1,14 +1,13 @@
 import React from 'react';
 import NavLayout from '../components/NavLayout';
 import LeftMenu from '../components/LeftMenu';
-import MainPage from '../components/MainPage/MainPage';
 
-export default function Home() {
+export default function SnapIndex() {
   return (
       <div>
           <NavLayout>
             <LeftMenu/>
-            <MainPage/>
+            스냅페이지
           </NavLayout>
       </div>
   )

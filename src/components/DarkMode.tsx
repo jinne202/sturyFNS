@@ -47,6 +47,7 @@ const LightButton = styled.div`
     border-color : ${({ theme }) => theme.mode.borderColor};
     border-style : solid;
     color : white;
+    cursor : pointer;
 `
 
 const DarkButton = styled.div`
@@ -56,6 +57,7 @@ const DarkButton = styled.div`
     border-width : 2px;
     border-style : solid;
     border-color : ${({ theme }) => theme.mode.borderColor};
+    cursor : pointer;
 `
 
 export default DarkMode;

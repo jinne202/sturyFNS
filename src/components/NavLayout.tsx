@@ -1,4 +1,5 @@
 import React, { ReactNode, FC } from "react";
+import Link from 'next/link';
 import styled from 'styled-components';
 import DarkMode from './DarkMode';
 
@@ -14,10 +15,12 @@ const NavLayout: FC<PropTypes> = ({ children }) => {
     return (
         <NavWrapper>
             <Nav>
+                <Link href="/">
                 <LeftNav>
                     <img src={logo} alt="로고"/>
                     <h1>FNS</h1>
                 </LeftNav>
+                </Link>
                 <DarkMode/>
                 <RightNav>
                     <LoginButton>LOGIN</LoginButton>
