@@ -6,6 +6,8 @@ declare module 'styled-components' {
       mainBg: string;
       textColor: string;
       borderColor : string;
+      containerColor : string;
+      buttonTextColor : string;
     }
   }
 }
