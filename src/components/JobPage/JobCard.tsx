@@ -13,18 +13,18 @@ const JobCard = (props: any) => {
 };
 
 const JobContainer = styled.div`
-    border: 1px solid ${({ theme }) => theme.mode.borderColor};
+    /* border: 1px solid ${({ theme }) => theme.mode.borderColor};
     width: 462px;
-    margin: 2px 0 0 2px;
+    margin: 2px 0 0 2px; */
 `;
 
 const JobUserTitle = styled.h2`
-    height: 53px;
+    /* height: 53px; */
 `;
 
 const JobThumbnail = styled.div`
-    height: 157px;
-    background: #eeeeee;
+    /* height: 157px;
+    background: #eeeeee; */
 `;
 
 export default JobCard;

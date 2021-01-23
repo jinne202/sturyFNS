@@ -13,18 +13,18 @@ const LookbookCard = (props: any) => {
 };
 
 const LookbookContainer = styled.div`
-    border: 1px solid ${({ theme }) => theme.mode.borderColor};
+    /* border: 1px solid ${({ theme }) => theme.mode.borderColor};
     width: 231px;
-    margin: 2px 0 0 2px;
+    margin: 2px 0 0 2px; */
 `;
 
 const LookbookUserName = styled.h2`
-    height: 53px;
+    /* height: 53px; */
 `;
 
 const LookbookThumbnail = styled.div`
-    height: 313px;
-    background: #eeeeee;
+    /* height: 313px;
+    background: #eeeeee; */
 `;
 
 export default LookbookCard;

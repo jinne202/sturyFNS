@@ -33,16 +33,16 @@ export default function LookBookIndex() {
 }
 
 const LookbookThumbListWrapper = styled.div`
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
     margin: 0 100px;
     padding: 60px 0;
     width: 1080px;
-    margin-left: auto;
+    margin-left: auto; */
 `;
 
 const LookbookCardWrapper = styled.div`
-    display: flex;
+    /* display: flex;
     flex-direction: row-reverse;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse; */
 `;
