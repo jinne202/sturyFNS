@@ -5,21 +5,20 @@ const SnapCard = (props: any) => {
     return (
         <SnapCardContainer>
             <img src="http://via.placeholder.com/300.png/09f/fff" alt="snapImage" />
-
             <SnapTitle>{props.title}</SnapTitle>
         </SnapCardContainer>
     );
 };
 
+// @ : width 삭제 시 LeftMenu로 가림
 const SnapCardContainer = styled.div`
     cursor: pointer;
-    width: 250px;
+    width: 252px;
     margin: 1px;
-    border: 1px solid ${({ theme }) => theme.mode.borderColor};
     color: ${({ theme }) => theme.mode.textColor};
 
     img {
-        width: 250px;
+        width: 252px;
     }
 `;
 

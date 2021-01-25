@@ -3,28 +3,27 @@ import styled from 'styled-components';
 
 const JobCard = (props: any) => {
     return (
-        <div>
-            <JobContainer>
-                <JobThumbnail>{props.source}</JobThumbnail>
-                <JobUserTitle>{props.title}</JobUserTitle>
-            </JobContainer>
-        </div>
+        <JobCardContainer>
+            <img src="http://via.placeholder.com/300.png/09f/fff" alt="JobImage" />
+            <JobTitle>{props.title}</JobTitle>
+        </JobCardContainer>
     );
 };
 
-const JobContainer = styled.div`
-    /* border: 1px solid ${({ theme }) => theme.mode.borderColor};
-    width: 462px;
-    margin: 2px 0 0 2px; */
+const JobCardContainer = styled.div`
+    cursor: pointer;
+    width: 378px;
+    margin: 2px;
+    color: ${({ theme }) => theme.mode.textColor};
+
+    img {
+        width: 378px;
+        height: 161px;
+    }
 `;
 
-const JobUserTitle = styled.h2`
-    /* height: 53px; */
-`;
-
-const JobThumbnail = styled.div`
-    /* height: 157px;
-    background: #eeeeee; */
+const JobTitle = styled.h2`
+    height: 20px;
 `;
 
 export default JobCard;

@@ -3,28 +3,27 @@ import styled from 'styled-components';
 
 const LookbookCard = (props: any) => {
     return (
-        <div>
-            <LookbookContainer>
-                <LookbookThumbnail>{props.source}</LookbookThumbnail>
-                <LookbookUserName>{props.name}</LookbookUserName>
-            </LookbookContainer>
-        </div>
+        <LookbookCardContainer>
+            <img src="http://via.placeholder.com/300.png/09f/fff" alt="lookbookImage" />
+            <LookbookUserName>{props.name}</LookbookUserName>
+        </LookbookCardContainer>
     );
 };
 
-const LookbookContainer = styled.div`
-    /* border: 1px solid ${({ theme }) => theme.mode.borderColor};
-    width: 231px;
-    margin: 2px 0 0 2px; */
+const LookbookCardContainer = styled.div`
+    cursor: pointer;
+    width: 187px;
+    margin: 2px;
+    color: ${({ theme }) => theme.mode.textColor};
+
+    img {
+        width: 187px;
+        height: 374px;
+    }
 `;
 
 const LookbookUserName = styled.h2`
-    /* height: 53px; */
-`;
-
-const LookbookThumbnail = styled.div`
-    /* height: 313px;
-    background: #eeeeee; */
+    height: 20px;
 `;
 
 export default LookbookCard;
