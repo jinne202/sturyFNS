@@ -25,7 +25,7 @@ const NavLayout: FC<PropTypes> = ({ children }) => {
                         <LoginButton>LOGIN</LoginButton>
                     </Link>
                     <Link href="/register">
-                    <RegisterButton>REGISTER</RegisterButton>
+                        <RegisterButton>REGISTER</RegisterButton>
                     </Link>
                 </RightNav>
             </Nav>
@@ -46,6 +46,7 @@ const Nav = styled.div`
 `;
 
 const LeftNav = styled.div`
+    cursor: pointer;
     display: flex;
     padding: 36px 0 25px 0;
     width: 114px;
@@ -73,12 +74,12 @@ const RightNav = styled.div`
 `;
 
 const LoginButton = styled.div`
-    cursor : pointer;
+    cursor: pointer;
 `;
 
 const RegisterButton = styled.div`
     margin: 0 0 0 34px;
-    cursor : pointer;
+    cursor: pointer;
 `;
 
 const Contents = styled.div``;

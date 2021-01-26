@@ -19,20 +19,18 @@ const jobs = [
 
 export default function JobIndex() {
     return (
-        <div>
-            <NavLayout>
-                <LeftMenu />
-                <JobWrapper>
-                    <JobThumbListWrapper>
-                        <JobThumbList>
-                            {jobs.map((job) => (
-                                <JobCard key={job.id} {...job} />
-                            ))}
-                        </JobThumbList>
-                    </JobThumbListWrapper>
-                </JobWrapper>
-            </NavLayout>
-        </div>
+        <NavLayout>
+            <LeftMenu />
+            <JobWrapper>
+                <JobThumbListWrapper>
+                    <JobThumbList>
+                        {jobs.map((job) => (
+                            <JobCard key={job.id} {...job} />
+                        ))}
+                    </JobThumbList>
+                </JobThumbListWrapper>
+            </JobWrapper>
+        </NavLayout>
     );
 }
 
