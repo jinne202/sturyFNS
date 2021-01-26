@@ -16,11 +16,18 @@ export const passwordCheckRgx = (password : string) => {
     return passwordCheckRegex.test(password);
 }
 
+const MemberType = [
+    {type : "일반 회원"},
+    {type : "작가 회원"},
+    {type : "모델 회원"},
+    {type : "브랜드 회원"}
+]
+
 function RegisterForm({ onSubmit }: RegisterFormProps) {
     const [registerForm, setRegisterForm] = useState({
         email: '',
         nickname : '',
-        password: ''
+        password: '',
     });
   
     const { email, nickname, password } = registerForm;
@@ -49,16 +56,38 @@ function RegisterForm({ onSubmit }: RegisterFormProps) {
       setRegisterForm({
         email: '',
         nickname : '',
-        password: ''
+        password: '',
       }); // 초기화
     };
+
+    const [selectedType, setSelectedType] = useState<string>("일반 회원");
+
+    const onChangeType = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSelectedType(e.target.value);
+      };
 
     const isEveryValid = () => {
         return emailCheckRgx(email) && passwordCheckRgx(password)  && (password === passwordCheck)
     }
-  
+
     return (
       <LoginFormWrapper onSubmit={handleSubmit}>
+          <RadioButtonWrapper>
+          {MemberType.map((member) => (
+              <RadioButtonBox key={member.type}>
+                <RadioButton
+                    id = {member.type}
+                    type = "radio"
+                    name={member.type}
+                    value={member.type}
+                    onChange={onChangeType}
+                    checked={member.type === selectedType}
+                />
+                <Label htmlFor={member.type}>{member.type}</Label>
+                </RadioButtonBox>
+          ))}
+          </RadioButtonWrapper>
+          <InputWrapper>
           <EmailWrapper>
               <SubTitle>Email</SubTitle>
               <LoginInput name="email" value={email} onChange={onChange} required/>
@@ -77,13 +106,18 @@ function RegisterForm({ onSubmit }: RegisterFormProps) {
             <SubLink>{passwordError ? "비밀번호가 일치하지 않습니다" : ""}</SubLink>
           </PasswordCheckWrapper>
         <LoginButton type="submit">회원가입하기</LoginButton>
+        </InputWrapper>
       </LoginFormWrapper>
     );
   }
 
 const LoginFormWrapper = styled.form`
-    width : 50%;
+    width : 100%;
     margin : 54px 0 0 0;
+`
+
+const InputWrapper = styled.div`
+    width : 50%;
 `
 
 const EmailWrapper = styled.div`
@@ -145,6 +179,40 @@ const SubLink = styled.p`
     font-size : 18px;
     font-weight : 700;
     margin : 10px 0 0 0;
+`
+
+const RadioButtonWrapper = styled.div`
+    width : 100%;
+    display : flex;
+    justify-content : space-between;
+    margin : 0 0 125px 0;
+`
+
+const RadioButtonBox = styled.div`
+    width : 24%;
+`
+
+const Label = styled.label`
+    display : block;
+    width : 100%;
+    height : 80px;
+    font-size : 18px;
+    background-color : ${({ theme }) => theme.mode.mainBg};
+    color : ${({ theme }) => theme.mode.textColor};
+    border : 4px solid ${({ theme }) => theme.mode.borderColor};
+    text-align : center;
+    padding : 25px 0;
+    font-weight : 600;
+    cursor: pointer;
+`
+
+const RadioButton = styled.input`
+    display : none;
+
+    &:checked + ${Label} {
+        background-color : ${({ theme }) => theme.mode.containerColor};
+        color : ${({ theme }) => theme.mode.buttonTextColor};
+  }
 `
 
 export default RegisterForm;
