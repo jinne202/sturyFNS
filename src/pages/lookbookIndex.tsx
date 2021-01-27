@@ -19,7 +19,7 @@ export default function LookBookIndex() {
     return (
         <NavLayout>
             <LeftMenu />
-            {/* <LookbookWrapper>
+            <LookbookWrapper>
                 <LookbookThumbListWrapper>
                     <LookbookThumbList>
                         {lookbooks.map((lookbook) => (
@@ -27,27 +27,28 @@ export default function LookBookIndex() {
                         ))}
                     </LookbookThumbList>
                 </LookbookThumbListWrapper>
-            </LookbookWrapper> */}
-            <LookbookWrapper>
-                <LookbookThumbWrapper>
-                    {lookbooks.map((lookbook) => (
-                        <LookbookCard key={lookbook.id} {...lookbook} />
-                    ))}
-                </LookbookThumbWrapper>
             </LookbookWrapper>
         </NavLayout>
     );
 }
 
 const LookbookWrapper = styled.div`
+    position: relative;
     display: flex;
     justify-content: flex-end;
-    padding: 78px 100px 100px 0px;
+    padding: 78px 0px 0px 20px;
+    margin: 0 100px 100px;
     margin-left: auto;
     width: 70%;
 `;
 
-const LookbookThumbWrapper = styled.div`
+const LookbookThumbListWrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
+    grid-gap: 1rem;
+`;
+
+const LookbookThumbList = styled.div`
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;

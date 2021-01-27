@@ -34,6 +34,7 @@ export default function SnapIndex() {
 }
 
 const SnapWrapper = styled.div`
+    position: relative;
     display: flex;
     justify-content: flex-end;
     padding: 78px 0px 0px 0px;

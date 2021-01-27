@@ -12,10 +12,9 @@ const SnapCard = (props: any) => {
 
 const SnapCardContainer = styled.div`
     cursor: pointer;
-
     color: ${({ theme }) => theme.mode.textColor};
-
     img {
+        width: 100%;
     }
 `;
 
