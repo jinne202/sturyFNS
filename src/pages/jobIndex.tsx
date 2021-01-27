@@ -19,31 +19,37 @@ const jobs = [
 
 export default function JobIndex() {
     return (
-        <div>
-            <NavLayout>
-                <LeftMenu />
+        <NavLayout>
+            <LeftMenu />
+            <JobWrapper>
                 <JobThumbListWrapper>
-                    <JobCardWrapper>
+                    <JobThumbList>
                         {jobs.map((job) => (
                             <JobCard key={job.id} {...job} />
                         ))}
-                    </JobCardWrapper>
+                    </JobThumbList>
                 </JobThumbListWrapper>
-            </NavLayout>
-        </div>
+            </JobWrapper>
+        </NavLayout>
     );
 }
 
-const JobThumbListWrapper = styled.div`
+const JobWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
-    margin: 0 100px;
-    padding: 60px 0;
-    width: 1080px;
+    padding: 59px 0px 0px 0px;
+    margin: 0 100px 100px 0;
     margin-left: auto;
+    width: 65%;
 `;
 
-const JobCardWrapper = styled.div`
+const JobThumbListWrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(388px, 1fr));
+    grid-gap: 1rem;
+`;
+
+const JobThumbList = styled.div`
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;

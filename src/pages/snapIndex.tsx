@@ -18,31 +18,37 @@ const snaps = [
 
 export default function SnapIndex() {
     return (
-        <div>
-            <NavLayout>
-                <LeftMenu />
+        <NavLayout>
+            <LeftMenu />
+            <SnapWrapper>
                 <SnapThumbListWrapper>
-                    <SnapCardWrapper>
+                    <SnapThumbList>
                         {snaps.map((snap) => (
                             <SnapCard key={snap.id} {...snap} />
                         ))}
-                    </SnapCardWrapper>
+                    </SnapThumbList>
                 </SnapThumbListWrapper>
-            </NavLayout>
-        </div>
+            </SnapWrapper>
+        </NavLayout>
     );
 }
 
-const SnapThumbListWrapper = styled.div`
+const SnapWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
-    margin: 0 100px;
-    padding: 60px 0;
-    width: 1080px;
+    padding: 59px 0px 0px 0px;
+    margin: 0 100px 100px;
     margin-left: auto;
+    width: 65%;
 `;
 
-const SnapCardWrapper = styled.div`
+const SnapThumbListWrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+    grid-gap: 1rem;
+`;
+
+const SnapThumbList = styled.div`
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
