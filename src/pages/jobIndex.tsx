@@ -37,7 +37,7 @@ export default function JobIndex() {
 const JobWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
-    padding: 59px 0px 0px 0px;
+    padding: 78px 0px 0px 0px;
     margin: 0 100px 100px 0;
     margin-left: auto;
     width: 65%;

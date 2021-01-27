@@ -10,11 +10,9 @@ const SnapCard = (props: any) => {
     );
 };
 
-// @ : width 삭제 시 LeftMenu로 가림
 const SnapCardContainer = styled.div`
     cursor: pointer;
-    width: 252px;
-    margin: 1px;
+
     color: ${({ theme }) => theme.mode.textColor};
 
     img {

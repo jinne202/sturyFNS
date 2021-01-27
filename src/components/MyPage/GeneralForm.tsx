@@ -56,6 +56,7 @@ const GeneralFormWrapper = styled.form`
     display: grid;
     align-items: center; /* 수직 가운데 정렬 */
     justify-content: center; /* 수평 가운데 정렬 */
+    line-height: 52px;
 `;
 
 const NameWrapper = styled.div`
@@ -92,13 +93,15 @@ const GeneralButton = styled.button`
     cursor: pointer;
     width: 496px;
     height: 84px;
+    font-family: Noto Sans KR;
+    font-weight: bold;
     font-size: 36px;
-    font-weight: 600;
+    border-radius: 50px;
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};
-    border: 0;
-    padding: 0;
-    margin: 646px auto 0px;
+    border: 4px solid ${({ theme }) => theme.mode.borderColor};
+    margin: 646px auto 0;
+    box-sizing: border-box;
 
     &:focus {
         outline: none;

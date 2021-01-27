@@ -33,7 +33,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/pages/h.js"  ],
   "exclude": [
     "node_modules"
   ]

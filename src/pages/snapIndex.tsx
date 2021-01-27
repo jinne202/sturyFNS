@@ -36,15 +36,15 @@ export default function SnapIndex() {
 const SnapWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
-    padding: 59px 0px 0px 0px;
+    padding: 78px 0px 0px 0px;
     margin: 0 100px 100px;
     margin-left: auto;
-    width: 65%;
+    width: 70%;
 `;
 
 const SnapThumbListWrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(3, 1fr));
     grid-gap: 1rem;
 `;
 

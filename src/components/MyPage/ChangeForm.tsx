@@ -20,17 +20,14 @@ const ChangeButton = styled.button`
     width: 496px;
     height: 84px;
     font-family: Noto Sans KR;
-    font-style: normal;
     font-weight: bold;
     font-size: 36px;
-    line-height: 52px;
 
     background-color: #fff;
     color: #c4c4c4;
     border: 4px solid #c4c4c4;
     box-sizing: border-box;
     border-radius: 50px;
-
     margin: 10px 0 219px 0;
 
     &:focus {
