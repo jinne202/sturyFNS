@@ -16,7 +16,6 @@ const SnapCardContainer = styled.div`
     color: ${({ theme }) => theme.mode.textColor};
 
     img {
-        width: 252px;
     }
 `;
 

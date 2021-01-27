@@ -29,13 +29,11 @@ export default function LookBookIndex() {
                 </LookbookThumbListWrapper>
             </LookbookWrapper> */}
             <LookbookWrapper>
-                <LookbookThumbList>
-                    <Wrapper>
-                        {lookbooks.map((lookbook) => (
-                            <LookbookCard key={lookbook.id} {...lookbook} />
-                        ))}
-                    </Wrapper>
-                </LookbookThumbList>
+                <LookbookThumbWrapper>
+                    {lookbooks.map((lookbook) => (
+                        <LookbookCard key={lookbook.id} {...lookbook} />
+                    ))}
+                </LookbookThumbWrapper>
             </LookbookWrapper>
         </NavLayout>
     );
@@ -44,25 +42,13 @@ export default function LookBookIndex() {
 const LookbookWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
-    padding: 78px 0px 0px 0px;
-    margin: 0 0 100px 100px;
-    /* margin-left: auto; */
+    padding: 78px 100px 100px 0px;
+    margin-left: auto;
     width: 70%;
 `;
 
-const LookbookThumbListWrapper = styled.div``;
-
-const LookbookThumbList = styled.div`
+const LookbookThumbWrapper = styled.div`
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
-`;
-
-const Wrapper = styled.div`
-    display: flex;
-    flex-flow: wrap;
-
-    LookbookCard {
-
-    }
 `;
