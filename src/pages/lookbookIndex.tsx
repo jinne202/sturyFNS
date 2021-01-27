@@ -36,8 +36,8 @@ const LookbookWrapper = styled.div`
     position: relative;
     display: flex;
     justify-content: flex-end;
-    padding: 78px 0px 0px 20px;
-    margin: 0 100px 100px;
+    padding: 40px 0 0 0;
+    margin: 0 100px 120px 0;
     margin-left: auto;
     width: 70%;
 `;

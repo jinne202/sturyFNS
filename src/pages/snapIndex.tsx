@@ -37,15 +37,15 @@ const SnapWrapper = styled.div`
     position: relative;
     display: flex;
     justify-content: flex-end;
-    padding: 78px 0px 0px 0px;
-    margin: 0 100px 100px;
+    padding: 78px 0 0 0;
+    margin: 0 100px 64px 0;
     margin-left: auto;
     width: 70%;
 `;
 
 const SnapThumbListWrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(3, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
 `;
 

@@ -12,13 +12,11 @@ const JobCard = (props: any) => {
 
 const JobCardContainer = styled.div`
     cursor: pointer;
-    width: 378px;
-    margin: 2px;
+    margin: 0px 0px 17px 15px;
     color: ${({ theme }) => theme.mode.textColor};
-
     img {
-        width: 378px;
-        height: 161px;
+        width: 444px;
+        height: 200px;
     }
 `;
 
