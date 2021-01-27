@@ -50,11 +50,7 @@ const LookbookWrapper = styled.div`
     width: 70%;
 `;
 
-const LookbookThumbListWrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-`;
+const LookbookThumbListWrapper = styled.div``;
 
 const LookbookThumbList = styled.div`
     display: flex;
@@ -63,8 +59,10 @@ const LookbookThumbList = styled.div`
 `;
 
 const Wrapper = styled.div`
-    display: grid;
+    display: flex;
+    flex-flow: wrap;
 
-    grid-template-rows: repeat(2, 100px);
-    grid-template-columns: repeat(4, 100px);
+    LookbookCard {
+
+    }
 `;
