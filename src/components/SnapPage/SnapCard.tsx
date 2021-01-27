@@ -1,30 +1,29 @@
-  
 import React from 'react';
 import styled from 'styled-components';
 
 const SnapCard = (props: any) => {
     return (
-        <div>
-            <SnapCardContainer>
-                <SnapThumbnail>{props.source}</SnapThumbnail>
-                <SnapTitle>{props.title}</SnapTitle>
-            </SnapCardContainer>
-        </div>
+        <SnapCardContainer>
+            <img src="http://via.placeholder.com/300.png/09f/fff" alt="snapImage" />
+            <SnapTitle>{props.title}</SnapTitle>
+        </SnapCardContainer>
     );
 };
 
+// @ : width 삭제 시 LeftMenu로 가림
 const SnapCardContainer = styled.div`
-    width: 311px;
-    border: 1px solid ${({ theme }) => theme.mode.borderColor};
+    cursor: pointer;
+    width: 252px;
+    margin: 1px;
+    color: ${({ theme }) => theme.mode.textColor};
+
+    img {
+        width: 252px;
+    }
 `;
 
 const SnapTitle = styled.h2`
-    height: 53px;
-`;
-
-const SnapThumbnail = styled.div`
-    height: 250px;
-    background: #eeeeee;
+    height: 20px;
 `;
 
 export default SnapCard;
