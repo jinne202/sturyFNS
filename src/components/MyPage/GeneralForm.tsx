@@ -45,7 +45,7 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
         <GeneralFormWrapper onSubmit={handleSubmit}>
             <NameWrapper>
                 <SubTitle>이름</SubTitle>
-                <GeneralInput name="name" value={name} onChange={onChange} required />
+                <GeneralNameInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
             <GeneralButton type="submit">등록하기</GeneralButton>
         </GeneralFormWrapper>
@@ -75,7 +75,7 @@ const SubTitle = styled.p`
     line-height: 52px;
 `;
 
-const GeneralInput = styled.input`
+const GeneralNameInput = styled.input`
     width: 564px;
     font-size: 36px;
     line-height: 200%;
