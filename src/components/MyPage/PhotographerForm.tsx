@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-type GeneralFormProps = {
-    onSubmit: (generalForm: { name: string }) => void;
+type PhotographerFormProps = {
+    onSubmit: (photographerForm: { name: string }) => void;
 };
 
 export const emailCheckRgx = (name: string) => {
@@ -11,17 +11,17 @@ export const emailCheckRgx = (name: string) => {
     return nameCheckRegex.test(name);
 };
 
-function GeneralForm({ onSubmit }: GeneralFormProps) {
-    const [generalForm, setGeneralForm] = useState({
+function PhotographerForm({ onSubmit }: PhotographerFormProps) {
+    const [photographerForm, setPhotographerForm] = useState({
         name: '',
     });
 
-    const { name } = generalForm;
+    const { name } = photographerForm;
 
     const onChange = (e: any) => {
         const { name, value } = e.target;
-        setGeneralForm({
-            ...generalForm,
+        setPhotographerForm({
+            ...photographerForm,
             [name]: value,
         });
     };
@@ -31,8 +31,8 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
         if (!isEveryValid()) {
             return;
         }
-        onSubmit(generalForm);
-        setGeneralForm({
+        onSubmit(photographerForm);
+        setPhotographerForm({
             name: '',
         }); // 초기화
     };
@@ -42,25 +42,59 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
     };
 
     return (
-        <GeneralFormWrapper onSubmit={handleSubmit}>
+        <PhotographerFormWrapper onSubmit={handleSubmit}>
             <NameWrapper>
                 <SubTitle>이름</SubTitle>
-                <GeneralInput name="name" value={name} onChange={onChange} required />
+                <PhotographerInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
-            <GeneralButton type="submit">등록하기</GeneralButton>
-        </GeneralFormWrapper>
+            <LocationWrapper>
+                <SubTitle>지역</SubTitle>
+                <PhotographerInput name="name" value={name} onChange={onChange} required />
+            </LocationWrapper>
+            <SNSIdWrapper>
+                <SubTitle>SNS주소</SubTitle>
+                <PhotographerInput name="name" value={name} onChange={onChange} required />
+            </SNSIdWrapper>
+            <IntroWrapper>
+                <SubTitle>한줄소개</SubTitle>
+                <PhotographerInput name="name" value={name} onChange={onChange} required />
+            </IntroWrapper>
+            <PhotographerButton type="submit">등록하기</PhotographerButton>
+        </PhotographerFormWrapper>
     );
 }
 
-const GeneralFormWrapper = styled.form`
+const PhotographerFormWrapper = styled.form`
     display: grid;
     align-items: center; /* 수직 가운데 정렬 */
     justify-content: center; /* 수평 가운데 정렬 */
+    line-height: 52px;
 `;
 
 const NameWrapper = styled.div`
     display: flex;
     margin: 192px 0 0 0;
+    width: 853px;
+    height: 52px;
+`;
+
+const LocationWrapper = styled.div`
+    display: flex;
+    margin: 84px 0 0 0;
+    width: 853px;
+    height: 52px;
+`;
+
+const SNSIdWrapper = styled.div`
+    display: flex;
+    margin: 84px 0 0 0;
+    width: 853px;
+    height: 52px;
+`;
+
+const IntroWrapper = styled.div`
+    display: flex;
+    margin: 84px 0 0 0;
     width: 853px;
     height: 52px;
 `;
@@ -74,7 +108,7 @@ const SubTitle = styled.p`
     line-height: 52px;
 `;
 
-const GeneralInput = styled.input`
+const PhotographerInput = styled.input`
     width: 564px;
     font-size: 36px;
     line-height: 200%;
@@ -88,21 +122,23 @@ const GeneralInput = styled.input`
     }
 `;
 
-const GeneralButton = styled.button`
+const PhotographerButton = styled.button`
     cursor: pointer;
     width: 496px;
     height: 84px;
+    font-family: Noto Sans KR;
+    font-weight: bold;
     font-size: 36px;
-    font-weight: 600;
+    border-radius: 50px;
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};
-    border: 0;
-    padding: 0;
-    margin: 646px auto 0px;
+    border: 4px solid ${({ theme }) => theme.mode.borderColor};
+    margin: 646px auto 0;
+    box-sizing: border-box;
 
     &:focus {
         outline: none;
     }
 `;
 
-export default GeneralForm;
+export default PhotographerForm;

@@ -5,7 +5,7 @@ type GeneralFormProps = {
     onSubmit: (generalForm: { name: string }) => void;
 };
 
-export const emailCheckRgx = (name: string) => {
+export const nameCheckRgx = (name: string) => {
     // 한글 또는 영문 사용하기(혼용X)
     const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
     return nameCheckRegex.test(name);
@@ -38,14 +38,14 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
     };
 
     const isEveryValid = () => {
-        return emailCheckRgx(name);
+        return nameCheckRgx(name);
     };
 
     return (
         <GeneralFormWrapper onSubmit={handleSubmit}>
             <NameWrapper>
                 <SubTitle>이름</SubTitle>
-                <GeneralInput name="name" value={name} onChange={onChange} required />
+                <GeneralNameInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
             <GeneralButton type="submit">등록하기</GeneralButton>
         </GeneralFormWrapper>
@@ -56,6 +56,7 @@ const GeneralFormWrapper = styled.form`
     display: grid;
     align-items: center; /* 수직 가운데 정렬 */
     justify-content: center; /* 수평 가운데 정렬 */
+    line-height: 52px;
 `;
 
 const NameWrapper = styled.div`
@@ -74,7 +75,7 @@ const SubTitle = styled.p`
     line-height: 52px;
 `;
 
-const GeneralInput = styled.input`
+const GeneralNameInput = styled.input`
     width: 564px;
     font-size: 36px;
     line-height: 200%;
@@ -92,13 +93,15 @@ const GeneralButton = styled.button`
     cursor: pointer;
     width: 496px;
     height: 84px;
+    font-family: Noto Sans KR;
+    font-weight: bold;
     font-size: 36px;
-    font-weight: 600;
+    border-radius: 50px;
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};
-    border: 0;
-    padding: 0;
-    margin: 646px auto 0px;
+    border: 4px solid ${({ theme }) => theme.mode.borderColor};
+    margin: 646px auto 0;
+    box-sizing: border-box;
 
     &:focus {
         outline: none;
