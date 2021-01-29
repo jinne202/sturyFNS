@@ -1,27 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
-type GeneralFormProps = {
-    onSubmit: (generalForm: { name: string }) => void;
+type PhotographerFormProps = {
+    onSubmit: (brandForm: { name: string; brandName: string; brandEmail: string; homePageUrl: string }) => void;
 };
-
-export const emailCheckRgx = (name: string) => {
+// @ : Name
+export const nameCheckRgx = (name: string) => {
     // 한글 또는 영문 사용하기(혼용X)
     const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
     return nameCheckRegex.test(name);
 };
+// @ : BrandName
+export const brandNameCheckRgx = (brandName: string) => {
+    const brandNameCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return brandNameCheckRgx.test(brandName);
+};
+// @ : BrandEmail
+export const brandEmailCheckRgx = (brandEmail: string) => {
+    const brandEmailCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return brandEmailCheckRgx.test(brandEmail);
+};
+// @ : HomePageUrl
+export const homePageUrlCheckRgx = (homePageUrl: string) => {
+    const homePageUrlCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return homePageUrlCheckRgx.test(homePageUrl);
+};
 
-function GeneralForm({ onSubmit }: GeneralFormProps) {
-    const [generalForm, setGeneralForm] = useState({
+function BrandForm({ onSubmit }: PhotographerFormProps) {
+    const [brandForm, setBrandForm] = useState({
         name: '',
+        brandName: '',
+        brandEmail: '',
+        homePageUrl: '',
     });
 
-    const { name } = generalForm;
+    const { name, brandName, brandEmail, homePageUrl } = brandForm;
 
     const onChange = (e: any) => {
         const { name, value } = e.target;
-        setGeneralForm({
-            ...generalForm,
+        setBrandForm({
+            ...brandForm,
             [name]: value,
         });
     };
@@ -31,36 +49,79 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
         if (!isEveryValid()) {
             return;
         }
-        onSubmit(generalForm);
-        setGeneralForm({
+        onSubmit(brandForm);
+        setBrandForm({
             name: '',
+            brandName: '',
+            brandEmail: '',
+            homePageUrl: '',
         }); // 초기화
     };
 
     const isEveryValid = () => {
-        return emailCheckRgx(name);
+        return (
+            nameCheckRgx(name) &&
+            brandNameCheckRgx(brandName) &&
+            brandEmailCheckRgx(brandEmail) &&
+            homePageUrlCheckRgx(homePageUrl)
+        );
     };
 
     return (
-        <GeneralFormWrapper onSubmit={handleSubmit}>
+        <BrandFormWrapper onSubmit={handleSubmit}>
             <NameWrapper>
                 <SubTitle>이름</SubTitle>
-                <GeneralInput name="name" value={name} onChange={onChange} required />
+                <BrandInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
-            <GeneralButton type="submit">등록하기</GeneralButton>
-        </GeneralFormWrapper>
+            <CompanyNameWrapper>
+                <SubTitleTwo>회사명</SubTitleTwo>
+                <BrandInput name="brandName" value={brandName} onChange={onChange} required />
+            </CompanyNameWrapper>
+            <CompanyEamilWrapper>
+                <SubTitleThree>회사EMAIL</SubTitleThree>
+                <BrandInput name="brandEmail" value={brandEmail} onChange={onChange} required />
+                <IdentificationButton type="submit">인증</IdentificationButton>
+            </CompanyEamilWrapper>
+            <HomePageURLWrapper>
+                <SubTitleThree>홈페이지URL</SubTitleThree>
+                <BrandInput name="homePageUrl" value={homePageUrl} onChange={onChange} required />
+            </HomePageURLWrapper>
+            <BrandButton type="submit">등록하기</BrandButton>
+        </BrandFormWrapper>
     );
 }
 
-const GeneralFormWrapper = styled.form`
+const BrandFormWrapper = styled.form`
     display: grid;
     align-items: center; /* 수직 가운데 정렬 */
     justify-content: center; /* 수평 가운데 정렬 */
+    line-height: 52px;
 `;
 
 const NameWrapper = styled.div`
     display: flex;
-    margin: 192px 0 0 0;
+    margin: 205px 0 0 0;
+    width: 853px;
+    height: 52px;
+`;
+
+const CompanyNameWrapper = styled.div`
+    display: flex;
+    margin: 84px 0 0 0;
+    width: 853px;
+    height: 52px;
+`;
+
+const CompanyEamilWrapper = styled.div`
+    display: flex;
+    margin: 84px 0 0 0;
+    width: 1040px;
+    height: 52px;
+`;
+
+const HomePageURLWrapper = styled.div`
+    display: flex;
+    margin: 84px 0 0 0;
     width: 853px;
     height: 52px;
 `;
@@ -74,11 +135,28 @@ const SubTitle = styled.p`
     line-height: 52px;
 `;
 
-const GeneralInput = styled.input`
+const SubTitleTwo = styled.p`
+    width: 149px;
+    margin: 0 140px 0 0;
+    font-size: 36px;
+    font-weight: 700;
+    color: ${({ theme }) => theme.mode.textColor};
+    line-height: 52px;
+`;
+
+const SubTitleThree = styled.p`
+    width: 213px;
+    margin: 0 76px 0 0;
+    font-size: 36px;
+    font-weight: 700;
+    color: ${({ theme }) => theme.mode.textColor};
+    line-height: 52px;
+`;
+
+const BrandInput = styled.input`
     width: 564px;
     font-size: 36px;
     line-height: 200%;
-
     border: none;
     border-bottom: 4px solid ${({ theme }) => theme.mode.borderColor};
     background-color: ${({ theme }) => theme.mode.mainBg};
@@ -88,21 +166,42 @@ const GeneralInput = styled.input`
     }
 `;
 
-const GeneralButton = styled.button`
+const IdentificationButton = styled.button`
     cursor: pointer;
-    width: 496px;
-    height: 84px;
+    width: 134px;
+    height: 64px;
+    font-family: Noto Sans KR;
+    font-weight: bold;
     font-size: 36px;
-    font-weight: 600;
+    border-radius: 50px;
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};
-    border: 0;
-    padding: 0;
-    margin: 646px auto 0px;
+    border: 4px solid ${({ theme }) => theme.mode.borderColor};
+    margin: -12px 0 0 53px;
+    padding: 0 0 10px 0;
 
     &:focus {
         outline: none;
     }
 `;
 
-export default GeneralForm;
+const BrandButton = styled.button`
+    cursor: pointer;
+    width: 496px;
+    height: 84px;
+    font-family: Noto Sans KR;
+    font-weight: bold;
+    font-size: 36px;
+    border-radius: 50px;
+    background-color: ${({ theme }) => theme.mode.containerColor};
+    color: ${({ theme }) => theme.mode.buttonTextColor};
+    border: 4px solid ${({ theme }) => theme.mode.borderColor};
+    margin: 646px auto 0;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+    }
+`;
+
+export default BrandForm;

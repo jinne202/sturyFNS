@@ -1,22 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 type PhotographerFormProps = {
-    onSubmit: (photographerForm: { name: string }) => void;
+    onSubmit: (photographerForm: { name: string; location: string; snsAddress: string; intro: string }) => void;
 };
-
-export const emailCheckRgx = (name: string) => {
+// @ : Name
+export const nameCheckRgx = (name: string) => {
     // 한글 또는 영문 사용하기(혼용X)
     const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
     return nameCheckRegex.test(name);
+};
+// @ : Location
+export const locationCheckRgx = (location: string) => {
+    const locationCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return locationCheckRgx.test(location);
+};
+// @ : SnsAddress
+export const snsAddressCheckRgx = (snsAddress: string) => {
+    const snsAddressCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return snsAddressCheckRgx.test(snsAddress);
+};
+// @ : Intro
+export const introCheckRgx = (intro: string) => {
+    // 한글 또는 영문 사용하기(혼용X)
+    const introCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return introCheckRgx.test(intro);
 };
 
 function PhotographerForm({ onSubmit }: PhotographerFormProps) {
     const [photographerForm, setPhotographerForm] = useState({
         name: '',
+        location: '',
+        snsAddress: '',
+        intro: '',
     });
 
-    const { name } = photographerForm;
+    const { name, location, snsAddress, intro } = photographerForm;
 
     const onChange = (e: any) => {
         const { name, value } = e.target;
@@ -34,11 +53,14 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
         onSubmit(photographerForm);
         setPhotographerForm({
             name: '',
+            location: '',
+            snsAddress: '',
+            intro: '',
         }); // 초기화
     };
 
     const isEveryValid = () => {
-        return emailCheckRgx(name);
+        return nameCheckRgx(name) && locationCheckRgx(location) && snsAddressCheckRgx(intro) && nameCheckRgx(intro);
     };
 
     return (
@@ -49,15 +71,15 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
             </NameWrapper>
             <LocationWrapper>
                 <SubTitle>지역</SubTitle>
-                <PhotographerInput name="name" value={name} onChange={onChange} required />
+                <PhotographerInput name="name" value={location} onChange={onChange} required />
             </LocationWrapper>
-            <SNSIdWrapper>
-                <SubTitle>SNS주소</SubTitle>
-                <PhotographerInput name="name" value={name} onChange={onChange} required />
-            </SNSIdWrapper>
+            <SNSAddressWrapper>
+                <SubTitleTwo>SNS주소</SubTitleTwo>
+                <PhotographerInput name="name" value={snsAddress} onChange={onChange} required />
+            </SNSAddressWrapper>
             <IntroWrapper>
-                <SubTitle>한줄소개</SubTitle>
-                <PhotographerInput name="name" value={name} onChange={onChange} required />
+                <SubTitleTwo>한줄소개</SubTitleTwo>
+                <PhotographerInput name="name" value={intro} onChange={onChange} required />
             </IntroWrapper>
             <PhotographerButton type="submit">등록하기</PhotographerButton>
         </PhotographerFormWrapper>
@@ -73,7 +95,7 @@ const PhotographerFormWrapper = styled.form`
 
 const NameWrapper = styled.div`
     display: flex;
-    margin: 192px 0 0 0;
+    margin: 205px 0 0 0;
     width: 853px;
     height: 52px;
 `;
@@ -85,7 +107,7 @@ const LocationWrapper = styled.div`
     height: 52px;
 `;
 
-const SNSIdWrapper = styled.div`
+const SNSAddressWrapper = styled.div`
     display: flex;
     margin: 84px 0 0 0;
     width: 853px;
@@ -102,6 +124,15 @@ const IntroWrapper = styled.div`
 const SubTitle = styled.p`
     width: 67px;
     margin: 0 222px 0 0;
+    font-size: 36px;
+    font-weight: 700;
+    color: ${({ theme }) => theme.mode.textColor};
+    line-height: 52px;
+`;
+
+const SubTitleTwo = styled.p`
+    width: 149px;
+    margin: 0 140px 0 0;
     font-size: 36px;
     font-weight: 700;
     color: ${({ theme }) => theme.mode.textColor};
