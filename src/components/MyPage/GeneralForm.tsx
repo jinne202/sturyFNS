@@ -41,11 +41,22 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
         return nameCheckRgx(name);
     };
 
+    const onClick = (e: any) => {
+        // 클릭 시 실행
+        handleSubmit(e);
+    };
+
+    const onKeyPress = (e: any) => {
+        if (e.key == 'Enter') {
+            onClick(e);
+        }
+    };
+
     return (
         <GeneralFormWrapper onSubmit={handleSubmit}>
             <NameWrapper>
                 <SubTitle>이름</SubTitle>
-                <GeneralNameInput name="name" value={name} onChange={onChange} required />
+                <GeneralNameInput name="name" value={name} onChange={onChange} onKeyPress={onKeyPress} required />
             </NameWrapper>
             <GeneralButton type="submit">등록하기</GeneralButton>
         </GeneralFormWrapper>

@@ -47,6 +47,7 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!isEveryValid()) {
+            console.log('입력 에러');
             return;
         }
         onSubmit(brandForm);
@@ -56,6 +57,7 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
             brandEmail: '',
             homePageUrl: '',
         }); // 초기화
+        console.log('입력 완료');
     };
 
     const isEveryValid = () => {
@@ -66,6 +68,19 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
             homePageUrlCheckRgx(homePageUrl)
         );
     };
+
+    const onClick = (e: any) => {
+        // 클릭 시 실행
+        handleSubmit(e);
+    };
+
+    const onKeyPress = (e: any) => {
+        if (e.key == 'Enter') {
+            onClick(e);
+        }
+    };
+
+    console.log(brandForm);
 
     return (
         <BrandFormWrapper onSubmit={handleSubmit}>
@@ -84,7 +99,13 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
             </CompanyEamilWrapper>
             <HomePageURLWrapper>
                 <SubTitleThree>홈페이지URL</SubTitleThree>
-                <BrandInput name="homePageUrl" value={homePageUrl} onChange={onChange} required />
+                <BrandInput
+                    name="homePageUrl"
+                    value={homePageUrl}
+                    onChange={onChange}
+                    onKeyPress={onKeyPress}
+                    required
+                />
             </HomePageURLWrapper>
             <BrandButton type="submit">등록하기</BrandButton>
         </BrandFormWrapper>

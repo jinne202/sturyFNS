@@ -12,20 +12,17 @@ export const nameCheckRgx = (name: string) => {
 };
 // @ : Location
 export const locationCheckRgx = (location: string) => {
-    const locationCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    // NOTE: 다음 우편번호 api?
+    const locationCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
     return locationCheckRgx.test(location);
 };
 // @ : SnsAddress
 export const snsAddressCheckRgx = (snsAddress: string) => {
-    const snsAddressCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    // url 입력
+    const snsAddressCheckRgx = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/g;
     return snsAddressCheckRgx.test(snsAddress);
 };
-// @ : Intro
-export const introCheckRgx = (intro: string) => {
-    // 한글 또는 영문 사용하기(혼용X)
-    const introCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
-    return introCheckRgx.test(intro);
-};
+// @ : Intro, 글자수 제한
 
 function PhotographerForm({ onSubmit }: PhotographerFormProps) {
     const [photographerForm, setPhotographerForm] = useState({
@@ -48,6 +45,7 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!isEveryValid()) {
+            console.log('입력 에러');
             return;
         }
         onSubmit(photographerForm);
@@ -57,10 +55,40 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
             snsAddress: '',
             intro: '',
         }); // 초기화
+        console.log('입력 완료');
     };
 
     const isEveryValid = () => {
-        return nameCheckRgx(name) && locationCheckRgx(location) && snsAddressCheckRgx(intro) && nameCheckRgx(intro);
+        if (nameCheckRgx(name) === false) {
+            console.log(1);
+        } else if (locationCheckRgx(location) === false) {
+            console.log(2);
+        } else if (snsAddressCheckRgx(intro) === false) {
+            console.log(3);
+        }
+        return nameCheckRgx(name) && locationCheckRgx(location) && snsAddressCheckRgx(snsAddress);
+    };
+
+    const handleChangeInput = (e: any) => {
+        const maxLength = 300;
+        const { name, value } = e.target;
+        const intro = value.slice(0, maxLength);
+
+        setPhotographerForm({
+            ...photographerForm,
+            [name]: intro,
+        });
+    };
+
+    const onClick = (e: any) => {
+        // 클릭 시 실행
+        handleSubmit(e);
+    };
+
+    const onKeyPress = (e: any) => {
+        if (e.key == 'Enter') {
+            onClick(e);
+        }
     };
 
     return (
@@ -71,17 +99,25 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
             </NameWrapper>
             <LocationWrapper>
                 <SubTitle>지역</SubTitle>
-                <PhotographerInput name="name" value={location} onChange={onChange} required />
+                <PhotographerInput name="location" value={location} onChange={onChange} required />
             </LocationWrapper>
             <SNSAddressWrapper>
                 <SubTitleTwo>SNS주소</SubTitleTwo>
-                <PhotographerInput name="name" value={snsAddress} onChange={onChange} required />
+                <PhotographerInput name="snsAddress" value={snsAddress} onChange={onChange} required />
             </SNSAddressWrapper>
             <IntroWrapper>
                 <SubTitleTwo>한줄소개</SubTitleTwo>
-                <PhotographerInput name="name" value={intro} onChange={onChange} required />
+                <PhotographerIntroInput
+                    name="intro"
+                    value={intro}
+                    onChange={handleChangeInput}
+                    onKeyPress={onKeyPress}
+                    required
+                />
             </IntroWrapper>
-            <PhotographerButton type="submit">등록하기</PhotographerButton>
+            <PhotographerButton type="submit" onClick={onClick}>
+                등록하기
+            </PhotographerButton>
         </PhotographerFormWrapper>
     );
 }
@@ -140,6 +176,20 @@ const SubTitleTwo = styled.p`
 `;
 
 const PhotographerInput = styled.input`
+    width: 564px;
+    font-size: 36px;
+    line-height: 200%;
+
+    border: none;
+    border-bottom: 4px solid ${({ theme }) => theme.mode.borderColor};
+    background-color: ${({ theme }) => theme.mode.mainBg};
+
+    &:focus {
+        outline: none;
+    }
+`;
+
+const PhotographerIntroInput = styled.input`
     width: 564px;
     font-size: 36px;
     line-height: 200%;

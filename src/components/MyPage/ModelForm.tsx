@@ -94,6 +94,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!isEveryValid()) {
+            console.log('입력 에러');
             return;
         }
         onSubmit(modelForm);
@@ -109,6 +110,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
             snsAddress: '',
             awards: '',
         }); // 초기화
+        console.log('입력 완료');
     };
 
     const isEveryValid = () => {
@@ -125,6 +127,19 @@ function ModelForm({ onSubmit }: ModelFormProps) {
             awardsCheckRgx(awards)
         );
     };
+
+    const onClick = (e: any) => {
+        // 클릭 시 실행
+        handleSubmit(e);
+    };
+
+    const onKeyPress = (e: any) => {
+        if (e.key == 'Enter') {
+            onClick(e);
+        }
+    };
+
+    console.log(modelForm);
 
     return (
         <ModelFormWrapper onSubmit={handleSubmit}>
@@ -166,7 +181,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
             </RestWrapper>
             <RestWrapper>
                 <SubTitleTwo>수상내역</SubTitleTwo>
-                <ModelInput name="awards" value={awards} onChange={onChange} required />
+                <ModelInput name="awards" value={awards} onChange={onChange} onKeyPress={onKeyPress} required />
             </RestWrapper>
             <ModelButton type="submit">등록하기</ModelButton>
         </ModelFormWrapper>
