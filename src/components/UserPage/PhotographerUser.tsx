@@ -11,7 +11,7 @@ const MyPosts = [
     {id : 4, title : "title4", img : "img"}
 ]
 
-const PhotographerMyPage = () => {
+const PhotographerUserPage = () => {
     return (
         <UserMyPageWrapper>
             <MyCard>
@@ -162,4 +162,4 @@ const MyPostsCardWrapper = styled.div`
 `
 
 
-export default PhotographerMyPage;
+export default PhotographerUserPage;
