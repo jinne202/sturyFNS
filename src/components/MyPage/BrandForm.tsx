@@ -11,18 +11,18 @@ export const nameCheckRgx = (name: string) => {
     return nameCheckRegex.test(name);
 };
 // @ : BrandName
-export const brandNameCheckRgx = (brandName: string) => {
-    const brandNameCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
-    return brandNameCheckRgx.test(brandName);
-};
+// export const brandNameCheckRgx = (brandName: string) => {
+//     const brandNameCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+//     return brandNameCheckRgx.test(brandName);
+// };
 // @ : BrandEmail
 export const brandEmailCheckRgx = (brandEmail: string) => {
-    const brandEmailCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const brandEmailCheckRgx = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
     return brandEmailCheckRgx.test(brandEmail);
 };
 // @ : HomePageUrl
 export const homePageUrlCheckRgx = (homePageUrl: string) => {
-    const homePageUrlCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const homePageUrlCheckRgx = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/g;
     return homePageUrlCheckRgx.test(homePageUrl);
 };
 
@@ -61,12 +61,7 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
     };
 
     const isEveryValid = () => {
-        return (
-            nameCheckRgx(name) &&
-            brandNameCheckRgx(brandName) &&
-            brandEmailCheckRgx(brandEmail) &&
-            homePageUrlCheckRgx(homePageUrl)
-        );
+        return nameCheckRgx(name) && brandEmailCheckRgx(brandEmail) && homePageUrlCheckRgx(homePageUrl);
     };
 
     const onClick = (e: any) => {
@@ -80,7 +75,7 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
         }
     };
 
-    console.log(brandForm);
+    // console.log(brandForm);
 
     return (
         <BrandFormWrapper onSubmit={handleSubmit}>
