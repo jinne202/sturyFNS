@@ -68,7 +68,7 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
         }
         return nameCheckRgx(name) && locationCheckRgx(location) && snsAddressCheckRgx(snsAddress);
     };
-
+    // @ : intro MaxLength
     const handleChangeInput = (e: any) => {
         const maxLength = 300;
         const { name, value } = e.target;
