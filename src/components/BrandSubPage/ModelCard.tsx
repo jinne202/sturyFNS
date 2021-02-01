@@ -65,15 +65,15 @@ const ModelSpec = styled.div`
 
 const ProfileBtn = styled.button`
     cursor : pointer;
-    width : 330px;
-    height : 70px;
+    width : 250px;
+    height : 55px;
     background-color : ${({ theme }) => theme.mode.containerColor};
     color : ${({ theme }) => theme.mode.buttonTextColor};
     border-radius : 70px;
-    font-size : 24px;
+    font-size : 20px;
     font-weight : 700;
     border : 0;
-    margin : 50px 30px 0;
+    margin : 50px 60px 0;
 
     &:focus {
         outline : none;
