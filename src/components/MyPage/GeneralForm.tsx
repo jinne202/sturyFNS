@@ -5,7 +5,7 @@ type GeneralFormProps = {
     onSubmit: (generalForm: { name: string }) => void;
 };
 
-export const emailCheckRgx = (name: string) => {
+export const nameCheckRgx = (name: string) => {
     // 한글 또는 영문 사용하기(혼용X)
     const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
     return nameCheckRegex.test(name);
@@ -38,14 +38,25 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
     };
 
     const isEveryValid = () => {
-        return emailCheckRgx(name);
+        return nameCheckRgx(name);
+    };
+
+    const onClick = (e: any) => {
+        // 클릭 시 실행
+        handleSubmit(e);
+    };
+
+    const onKeyPress = (e: any) => {
+        if (e.key == 'Enter') {
+            onClick(e);
+        }
     };
 
     return (
         <GeneralFormWrapper onSubmit={handleSubmit}>
             <NameWrapper>
                 <SubTitle>이름</SubTitle>
-                <GeneralNameInput name="name" value={name} onChange={onChange} required />
+                <GeneralNameInput name="name" value={name} onChange={onChange} onKeyPress={onKeyPress} required />
             </NameWrapper>
             <GeneralButton type="submit">등록하기</GeneralButton>
         </GeneralFormWrapper>

@@ -1,31 +1,31 @@
 import React from 'react';
 import NavLayout from '../components/NavLayout';
 import styled from 'styled-components';
-import GeneralForm from '../components/MyPage/GeneralForm';
 import ChangeForm from '../components/MyPage/ChangeForm';
+import BrandForm from '../components/MyPage/BrandForm';
 
-export default function generalMyPage() {
-    const onSubmit = (generalForm: { name: string }) => {
-        console.log(generalForm);
+export default function brandMyPage() {
+    const onSubmit = (brandForm: { name: string; brandName: string; brandEmail: string; homePageUrl: string }) => {
+        console.log(brandForm);
     };
 
     return (
         <NavLayout>
-            <GeneralMyPageWrapper>
-                <GeneralMyPageTitle>MY PAGE</GeneralMyPageTitle>
-                <GeneralForm onSubmit={onSubmit} />
+            <BrandMyPageWrapper>
+                <BrandMyPageTitle>MY PAGE</BrandMyPageTitle>
+                <BrandForm onSubmit={onSubmit} />
                 <ChangeForm />
-            </GeneralMyPageWrapper>
+            </BrandMyPageWrapper>
         </NavLayout>
     );
 }
 
-const GeneralMyPageWrapper = styled.div`
+const BrandMyPageWrapper = styled.div`
     width: 100%;
     font-family: 'Noto Sans KR', sans-serif;
 `;
 
-const GeneralMyPageTitle = styled.h2`
+const BrandMyPageTitle = styled.h2`
     text-align: center;
     font-size: 96px;
     font-weight: 700;
