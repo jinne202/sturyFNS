@@ -21,11 +21,9 @@ export default function LookBookIndex() {
             <LeftMenu />
             <LookbookWrapper>
                 <LookbookThumbListWrapper>
-                    <LookbookThumbList>
                         {lookbooks.map((lookbook) => (
                             <LookbookCard key={lookbook.id} {...lookbook} />
                         ))}
-                    </LookbookThumbList>
                 </LookbookThumbListWrapper>
             </LookbookWrapper>
         </NavLayout>
@@ -43,9 +41,14 @@ const LookbookWrapper = styled.div`
 `;
 
 const LookbookThumbListWrapper = styled.div`
+    width : 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
-    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 15px;
+    row-gap : 40px;
+    
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
 `;
 
 const LookbookThumbList = styled.div`

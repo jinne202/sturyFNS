@@ -30,12 +30,12 @@ const LookbookCard = (props: any) => {
 
 const LookbookCardContainer = styled.div`
     cursor: pointer;
-    margin: 38px 0px 0px 14px;
+    background-color : #eee;
     color: ${({ theme }) => theme.mode.textColor};
-    img {
+    /* img {
         width: 215px;
         height: 374px;
-    }
+    } */
 `;
 
 const LookbookTitle = styled.h2`
