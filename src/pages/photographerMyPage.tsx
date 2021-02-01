@@ -6,6 +6,7 @@ import ChangeForm from '../components/MyPage/ChangeForm';
 
 export default function photographerMyPage() {
     const onSubmit = (photographerForm: { name: string; location: string; snsAddress: string; intro: string }) => {
+
         console.log(photographerForm);
     };
 
