@@ -18,39 +18,39 @@ type ModelFormProps = {
 // @ : Name .
 export const nameCheckRgx = (name: string) => {
     // 한글 또는 영문 사용하기(혼용X)
-    const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
     return nameCheckRegex.test(name);
 };
 // @ : Gender
 
 // @ : Height
 export const heightCheckRgx = (height: string) => {
-    const heightCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const heightCheckRgx = /^[0-9]{3}$/;
     return heightCheckRgx.test(height);
 };
 // @ : Weight
 export const weightCheckRgx = (weight: string) => {
-    const weightCheckRgx = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const weightCheckRgx = /^[0-9]{3}$/;
     return weightCheckRgx.test(weight);
 };
 // @ : Bust
 export const bustCheckRgx = (bust: string) => {
-    const bustCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const bustCheckRegex = /^[0-9]{3}$/;
     return bustCheckRegex.test(bust);
 };
 // @ : Waist
 export const waistCheckRgx = (waist: string) => {
-    const waistCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const waistCheckRegex = /^[0-9]{3}$/;
     return waistCheckRegex.test(waist);
 };
 // @ : Hip
 export const hipCheckRgx = (hip: string) => {
-    const hipCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const hipCheckRegex = /^[0-9]{3}$/;
     return hipCheckRegex.test(hip);
 };
 // @ : Shoes
 export const shoesCheckRgx = (shoes: string) => {
-    const shoesCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    const shoesCheckRegex = /^[0-9]{3}$/;
     return shoesCheckRegex.test(shoes);
 };
 // @ : SnsAddress
@@ -60,10 +60,6 @@ export const snsAddressCheckRgx = (snsAddress: string) => {
     return snsAddressCheckRgx.test(snsAddress);
 };
 // @ : Awards
-export const awardsCheckRgx = (awards: string) => {
-    const awardsCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
-    return awardsCheckRegex.test(awards);
-};
 
 function ModelForm({ onSubmit }: ModelFormProps) {
     const [modelForm, setModelForm] = useState({
@@ -112,25 +108,25 @@ function ModelForm({ onSubmit }: ModelFormProps) {
     };
 
     const isEveryValid = () => {
-        // if (nameCheckRgx(name) === false) {
-        //     console.log(1);
-        // } else if (heightCheckRgx(height) === false) {
-        //     console.log(2);
-        // } else if (weightCheckRgx(weight) === false) {
-        //     console.log(3);
-        // } else if (bustCheckRgx(bust) === false) {
-        //     console.log(4);
-        // } else if (waistCheckRgx(waist) === false) {
-        //     console.log(5);
-        // } else if (hipCheckRgx(hip) === false) {
-        //     console.log(6);
-        // } else if (shoesCheckRgx(shoes) === false) {
-        //     console.log(7);
-        // } else if (snsAddressCheckRgx(snsAddress) === false) {
-        //     console.log(8);
-        // } else if (awardsCheckRgx(awards) === false) {
-        //     console.log(9);
-        // }
+        if (nameCheckRgx(name) === false) {
+            console.log(1);
+        } else if (heightCheckRgx(height) === false) {
+            console.log(2);
+        } else if (weightCheckRgx(weight) === false) {
+            console.log(3);
+        } else if (bustCheckRgx(bust) === false) {
+            console.log(4);
+        } else if (waistCheckRgx(waist) === false) {
+            console.log(5);
+        } else if (hipCheckRgx(hip) === false) {
+            console.log(6);
+        } else if (shoesCheckRgx(shoes) === false) {
+            console.log(7);
+        } else if (snsAddressCheckRgx(snsAddress) === false) {
+            console.log(8);
+        } else {
+            console.log(9);
+        }
         return (
             nameCheckRgx(name) &&
             heightCheckRgx(height) &&
@@ -139,8 +135,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
             waistCheckRgx(waist) &&
             hipCheckRgx(hip) &&
             shoesCheckRgx(shoes) &&
-            snsAddressCheckRgx(snsAddress) &&
-            awardsCheckRgx(awards)
+            snsAddressCheckRgx(snsAddress)
         );
     };
 
