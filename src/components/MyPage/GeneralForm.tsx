@@ -73,23 +73,23 @@ const GeneralFormWrapper = styled.form`
 const NameWrapper = styled.div`
     display: flex;
     margin: 192px 0 0 0;
-    width: 853px;
+    width: 600px;
     height: 52px;
 `;
 
 const SubTitle = styled.p`
     width: 67px;
-    margin: 0 222px 0 0;
-    font-size: 36px;
+    margin: 0 50px 0 0;
+    font-size: 20px;
     font-weight: 700;
     color: ${({ theme }) => theme.mode.textColor};
     line-height: 52px;
 `;
 
 const GeneralNameInput = styled.input`
-    width: 564px;
-    font-size: 36px;
-    line-height: 200%;
+    width: 400px;
+    font-size: 18px;
+    line-height: 52px;
 
     border: none;
     border-bottom: 4px solid ${({ theme }) => theme.mode.borderColor};
@@ -102,11 +102,11 @@ const GeneralNameInput = styled.input`
 
 const GeneralButton = styled.button`
     cursor: pointer;
-    width: 496px;
-    height: 84px;
+    width: 350px;
+    height: 60px;
     font-family: Noto Sans KR;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 20px;
     border-radius: 50px;
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};

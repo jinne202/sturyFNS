@@ -17,13 +17,13 @@ const ChangeFormWrapper = styled.form`
 
 const ChangeButton = styled.button`
     cursor: pointer;
-    width: 496px;
-    height: 84px;
+    width: 350px;
+    height: 60px;
     font-family: Noto Sans KR;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 20px;
 
-    background-color: #fff;
+    background-color: transparent;
     color: #c4c4c4;
     border: 4px solid #c4c4c4;
     box-sizing: border-box;
