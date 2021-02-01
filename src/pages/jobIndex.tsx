@@ -35,12 +35,13 @@ export default function JobIndex() {
 }
 
 const JobWrapper = styled.div`
+    position: relative;
     display: flex;
     justify-content: flex-end;
-    padding: 59px 0px 0px 0px;
-    margin: 0 100px 100px 0;
+    padding: 78px 0px 82px 0px;
+    margin: 0 100px 0 0;
     margin-left: auto;
-    width: 65%;
+    width: 70%;
 `;
 
 const JobThumbListWrapper = styled.div`

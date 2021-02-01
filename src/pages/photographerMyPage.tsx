@@ -1,31 +1,31 @@
 import React from 'react';
 import NavLayout from '../components/NavLayout';
 import styled from 'styled-components';
-import GeneralForm from '../components/MyPage/GeneralForm';
+import PhotographerForm from '../components/MyPage/PhotographerForm';
 import ChangeForm from '../components/MyPage/ChangeForm';
 
-export default function generalMyPage() {
-    const onSubmit = (generalForm: { name: string }) => {
-        console.log(generalForm);
+export default function photographerMyPage() {
+    const onSubmit = (photographerForm: { name: string }) => {
+        console.log(photographerForm);
     };
 
     return (
         <NavLayout>
-            <GeneralMyPageWrapper>
-                <GeneralMyPageTitle>MY PAGE</GeneralMyPageTitle>
-                <GeneralForm onSubmit={onSubmit} />
+            <PhotographerMyPageWrapper>
+                <PhotographerMyPageTitle>MY PAGE</PhotographerMyPageTitle>
+                <PhotographerForm onSubmit={onSubmit} />
                 <ChangeForm />
-            </GeneralMyPageWrapper>
+            </PhotographerMyPageWrapper>
         </NavLayout>
     );
 }
 
-const GeneralMyPageWrapper = styled.div`
+const PhotographerMyPageWrapper = styled.div`
     width: 100%;
     font-family: 'Noto Sans KR', sans-serif;
 `;
 
-const GeneralMyPageTitle = styled.h2`
+const PhotographerMyPageTitle = styled.h2`
     text-align: center;
     font-size: 96px;
     font-weight: 700;

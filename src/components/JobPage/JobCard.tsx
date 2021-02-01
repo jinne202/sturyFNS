@@ -5,25 +5,23 @@ const JobCard = (props: any) => {
     return (
         <JobCardContainer>
             <img src="http://via.placeholder.com/300.png/09f/fff" alt="JobImage" />
-            <JobTitle>{props.title}</JobTitle>
+            {/* <JobTitle>{props.title}</JobTitle> */}
         </JobCardContainer>
     );
 };
 
 const JobCardContainer = styled.div`
     cursor: pointer;
-    width: 378px;
-    margin: 2px;
+    margin: 0px 0px 17px 15px;
     color: ${({ theme }) => theme.mode.textColor};
-
     img {
-        width: 378px;
-        height: 161px;
+        width: 444px;
+        height: 200px;
     }
 `;
 
 const JobTitle = styled.h2`
-    height: 20px;
+    /* height: 20px; */
 `;
 
 export default JobCard;

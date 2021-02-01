@@ -34,3 +34,22 @@ const GeneralMyPageTitle = styled.h2`
     margin: 148px 0 0 0;
     line-height: 144px;
 `;
+
+const GeneralButton = styled.button`
+    cursor: pointer;
+    width: 496px;
+    height: 84px;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 52px;
+    border-radius: 50px;
+    background-color: ${({ theme }) => theme.mode.containerColor};
+    color: ${({ theme }) => theme.mode.buttonTextColor};
+    border: 4px solid ${({ theme }) => theme.mode.borderColor};
+    padding: 0;
+    margin: 646px auto 0;
+
+    &:focus {
+        outline: none;
+    }
+`;
