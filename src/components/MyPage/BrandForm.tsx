@@ -84,16 +84,16 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
                 <BrandInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
             <CompanyNameWrapper>
-                <SubTitleTwo>회사명</SubTitleTwo>
+                <SubTitle>회사명</SubTitle>
                 <BrandInput name="brandName" value={brandName} onChange={onChange} required />
             </CompanyNameWrapper>
             <CompanyEamilWrapper>
-                <SubTitleThree>회사EMAIL</SubTitleThree>
+                <SubTitle>회사EMAIL</SubTitle>
                 <BrandInput name="brandEmail" value={brandEmail} onChange={onChange} required />
                 <IdentificationButton type="submit">인증</IdentificationButton>
             </CompanyEamilWrapper>
             <HomePageURLWrapper>
-                <SubTitleThree>홈페이지URL</SubTitleThree>
+                <SubTitle>홈페이지URL</SubTitle>
                 <BrandInput
                     name="homePageUrl"
                     value={homePageUrl}
@@ -117,53 +117,31 @@ const BrandFormWrapper = styled.form`
 const NameWrapper = styled.div`
     display: flex;
     margin: 205px 0 0 0;
-    width: 853px;
     height: 52px;
 `;
 
 const CompanyNameWrapper = styled.div`
     display: flex;
     margin: 84px 0 0 0;
-    width: 853px;
     height: 52px;
 `;
 
 const CompanyEamilWrapper = styled.div`
     display: flex;
     margin: 84px 0 0 0;
-    width: 1040px;
     height: 52px;
 `;
 
 const HomePageURLWrapper = styled.div`
     display: flex;
     margin: 84px 0 0 0;
-    width: 853px;
     height: 52px;
 `;
 
 const SubTitle = styled.p`
-    width: 67px;
-    margin: 0 222px 0 0;
-    font-size: 36px;
-    font-weight: 700;
-    color: ${({ theme }) => theme.mode.textColor};
-    line-height: 52px;
-`;
-
-const SubTitleTwo = styled.p`
-    width: 149px;
-    margin: 0 140px 0 0;
-    font-size: 36px;
-    font-weight: 700;
-    color: ${({ theme }) => theme.mode.textColor};
-    line-height: 52px;
-`;
-
-const SubTitleThree = styled.p`
-    width: 213px;
-    margin: 0 76px 0 0;
-    font-size: 36px;
+    width: 200px;
+    display : block;
+    font-size: 20px;
     font-weight: 700;
     color: ${({ theme }) => theme.mode.textColor};
     line-height: 52px;
@@ -171,7 +149,7 @@ const SubTitleThree = styled.p`
 
 const BrandInput = styled.input`
     width: 564px;
-    font-size: 36px;
+    font-size: 20px;
     line-height: 200%;
     border: none;
     border-bottom: 4px solid ${({ theme }) => theme.mode.borderColor};
@@ -184,11 +162,11 @@ const BrandInput = styled.input`
 
 const IdentificationButton = styled.button`
     cursor: pointer;
-    width: 134px;
-    height: 64px;
+    width: 70px;
+    height: 40px;
     font-family: Noto Sans KR;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 20px;
     border-radius: 50px;
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};
@@ -203,16 +181,16 @@ const IdentificationButton = styled.button`
 
 const BrandButton = styled.button`
     cursor: pointer;
-    width: 496px;
-    height: 84px;
+    width: 350px;
+    height: 60px;
     font-family: Noto Sans KR;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 20px;
     border-radius: 50px;
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};
     border: 4px solid ${({ theme }) => theme.mode.borderColor};
-    margin: 646px auto 0;
+    margin: 200px auto 0;
     box-sizing: border-box;
 
     &:focus {
