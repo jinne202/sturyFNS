@@ -32,7 +32,7 @@ const LookbookCard = (props: any) => {
 
 const LookbookCardContainer = styled.div`
     cursor: pointer;
-    margin: 38px 0px 0px 14px;
+    margin: 38px 0px 60px 14px;
     color: ${({ theme }) => theme.mode.textColor};
     img {
         width: 215px;
