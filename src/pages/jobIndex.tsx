@@ -3,6 +3,7 @@ import NavLayout from '../components/NavLayout';
 import LeftMenu from '../components/LeftMenu';
 import styled from 'styled-components';
 import JobCard from '../components/JobPage/JobCard';
+import { Row, Col, List } from 'antd';
 
 const jobs = [
     { id: 1, title: 'title1', source: 'blue' },
@@ -19,17 +20,46 @@ const jobs = [
 
 export default function JobIndex() {
     return (
+        // <NavLayout>
+        //     <LeftMenu />
+        //     <JobWrapper>
+        //         <JobThumbListWrapper>
+        //             <JobThumbList>
+        //                 {jobs.map((job) => (
+        //                     <JobCard key={job.id} {...job} />
+        //                 ))}
+        //             </JobThumbList>
+        //         </JobThumbListWrapper>
+        //     </JobWrapper>
+        // </NavLayout>
         <NavLayout>
-            <LeftMenu />
-            <JobWrapper>
-                <JobThumbListWrapper>
-                    <JobThumbList>
-                        {jobs.map((job) => (
-                            <JobCard key={job.id} {...job} />
-                        ))}
-                    </JobThumbList>
-                </JobThumbListWrapper>
-            </JobWrapper>
+            <Row style={{ marginBottom: '100px' }}>
+                <Col xs={24} sm={24} md={24} lg={8}>
+                    <div>
+                        <LeftMenu />
+                    </div>
+                </Col>
+                <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0px 100px 25px' }}>
+                    <List
+                        grid={{
+                            gutter: 0,
+                            xs: 2,
+                            sm: 3,
+                            md: 4,
+                            lg: 4,
+                            xl: 4,
+                            xxl: 4,
+                        }}
+                        dataSource={lookbooks}
+                        renderItem={(item) => (
+                            <List.Item>
+                                <LookbookCard key={item.id} {...item} />
+                            </List.Item>
+                        )}
+                    />
+                </Col>
+                <Col xs={24} sm={24} md={24} lg={2}></Col>
+            </Row>
         </NavLayout>
     );
 }
