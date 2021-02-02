@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Row, Col } from 'antd';
 
 const JobCard = (props: any) => {
     return (
         <JobCardContainer>
-            <img src="http://via.placeholder.com/300.png/09f/fff" alt="JobImage" />
-            {/* <JobTitle>{props.title}</JobTitle> */}
+            <Row style={{ width: '100%' }}>
+                <img src="http://placehold.it/240x240" alt="jobImage" />
+            </Row>
         </JobCardContainer>
     );
 };
@@ -18,10 +20,6 @@ const JobCardContainer = styled.div`
         width: 444px;
         height: 200px;
     }
-`;
-
-const JobTitle = styled.h2`
-    /* height: 20px; */
 `;
 
 export default JobCard;
