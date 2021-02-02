@@ -6,14 +6,16 @@ import { Row, Col } from 'antd';
 const LookbookCard = (props: any) => {
     return (
         <LookbookCardContainer>
-            <Row style={{ width: '100%' }}>
-                <img src="http://placehold.it/240x240" alt="lookbookImage" />
+            <Row>
+                <Col span={24}>
+                    <img src="http://placehold.it/240x240" alt="lookbookImage" />
+                </Col>
             </Row>
-            <Row style={{ width: '100%' }}>
+            <Row>
                 <Col span={12} style={{ width: '50%', position: 'absolute' }}>
                     <LookbookUserName>{props.name}</LookbookUserName>
                 </Col>
-                <Col span={12} style={{ position: 'absolute', left: '175px' }}>
+                <Col span={12} style={{ position: 'absolute', left: '200px' }}>
                     <Row>
                         <Col span={12}>
                             <LookbookLikeCount>100</LookbookLikeCount>
@@ -32,11 +34,11 @@ const LookbookCard = (props: any) => {
 
 const LookbookCardContainer = styled.div`
     cursor: pointer;
-    margin: 38px 0px 60px 14px;
+    margin: 0px 0px 60px 30px;
     color: ${({ theme }) => theme.mode.textColor};
     img {
-        width: 215px;
-        height: 374px;
+        width: 220px;
+        height: 375px;
     }
 `;
 const LookbookUserName = styled.div`
@@ -47,14 +49,14 @@ const LookbookUserName = styled.div`
 `;
 const LookbookLikeCount = styled.div`
     margin: 9px 30px 0 0;
-    line-height: 26px;
+    line-height: 28px;
     font-family: Noto Sans KR;
     font-weight: normal;
     font-size: 18px;
 `;
 const LookbookLike = styled.div`
     margin: 9px 0 0 0;
-    line-height: 30px;
+    line-height: 32px;
     font-family: Noto Sans KR;
     font-weight: normal;
     font-size: 18px;

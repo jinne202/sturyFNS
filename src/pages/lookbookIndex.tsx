@@ -21,9 +21,7 @@ export default function LookBookIndex() {
         <NavLayout>
             <Row>
                 <Col xs={24} sm={24} md={24} lg={8}>
-                    <div>
-                        <LeftMenu />
-                    </div>
+                    <LeftMenu />
                 </Col>
                 <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0 100px 0' }}>
                     <List
@@ -44,7 +42,6 @@ export default function LookBookIndex() {
                         )}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={2}></Col>
             </Row>
         </NavLayout>
     );

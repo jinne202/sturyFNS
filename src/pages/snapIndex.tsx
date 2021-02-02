@@ -20,16 +20,14 @@ const snaps = [
 export default function SnapIndex() {
     return (
         <NavLayout>
-            <Row style={{ marginBottom: '100px' }}>
+            {/* <Row style={{ marginBottom: '100px' }}>
                 <Col xs={24} sm={24} md={24} lg={8}>
-                    <div>
-                        <LeftMenu />
-                    </div>
+                    <LeftMenu />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0px 100px 25px' }}>
+
+                <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0px 100px 20px' }}>
                     <List
                         grid={{
-                            gutter: 0,
                             xs: 1,
                             sm: 2,
                             md: 3,
@@ -39,14 +37,17 @@ export default function SnapIndex() {
                         }}
                         dataSource={snaps}
                         renderItem={(item) => (
-                            <List.Item>
+                            <List.Item style={{ marginBottom: '-10px' }}>
                                 <SnapCard key={item.id} {...item} />
                             </List.Item>
                         )}
                     />
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={2}></Col>
-            </Row>
+            </Row> */}
+            <LeftMenu />
+            {snaps.map((snap) => (
+                <SnapCard key={snap.id} {...snap} />
+            ))}
         </NavLayout>
     );
 }
