@@ -6,19 +6,19 @@ import { Row, Col } from 'antd';
 const LookbookCard = (props: any) => {
     return (
         <LookbookCardContainer>
-            <Row>
+            <Row style={{ width: '100%' }}>
                 <img src="http://placehold.it/240x240" alt="lookbookImage" />
             </Row>
-            <Row>
-                <Col xs={24} sm={24} md={24} lg={18}>
+            <Row style={{ width: '100%' }}>
+                <Col span={12} style={{ width: '50%', position: 'absolute' }}>
                     <LookbookUserName>{props.name}</LookbookUserName>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={6}>
-                    <Row style={{ marginRight: '3px' }}>
-                        <Col xs={24} sm={24} md={24} lg={20}>
+                <Col span={12} style={{ position: 'absolute', left: '175px' }}>
+                    <Row>
+                        <Col span={12}>
                             <LookbookLikeCount>100</LookbookLikeCount>
                         </Col>
-                        <Col xs={24} sm={24} md={24} lg={4} style={{}}>
+                        <Col span={12} style={{ paddingLeft: '2px' }}>
                             <LookbookLike>
                                 <BsHeart />
                             </LookbookLike>
@@ -39,7 +39,6 @@ const LookbookCardContainer = styled.div`
         height: 374px;
     }
 `;
-
 const LookbookUserName = styled.div`
     margin: 5px 0 0 0;
     font-weight: bold;
@@ -47,13 +46,12 @@ const LookbookUserName = styled.div`
     line-height: 32px;
 `;
 const LookbookLikeCount = styled.div`
-    margin: 9px 0 0 0;
+    margin: 9px 30px 0 0;
     line-height: 26px;
     font-family: Noto Sans KR;
     font-weight: normal;
     font-size: 18px;
 `;
-
 const LookbookLike = styled.div`
     margin: 9px 0 0 0;
     line-height: 30px;

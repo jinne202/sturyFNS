@@ -19,13 +19,13 @@ const lookbooks = [
 export default function LookBookIndex() {
     return (
         <NavLayout>
-            <Row style={{ marginBottom: '100px' }}>
+            <Row>
                 <Col xs={24} sm={24} md={24} lg={8}>
                     <div>
                         <LeftMenu />
                     </div>
                 </Col>
-                <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0px 100px 0' }}>
+                <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0 100px 0' }}>
                     <List
                         grid={{
                             gutter: 0,
