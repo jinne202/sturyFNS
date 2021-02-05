@@ -3,7 +3,6 @@ import NavLayout from '../components/NavLayout';
 import LeftMenu from '../components/LeftMenu';
 import styled from 'styled-components';
 import LookbookCard from '../components/LookbookPage/LookbookCard';
-import { Row, Col, List } from 'antd';
 
 const lookbooks = [
     { id: 1, name: 'name1', source: 'blue' },
@@ -19,30 +18,41 @@ const lookbooks = [
 export default function LookBookIndex() {
     return (
         <NavLayout>
-            <Row>
-                <Col xs={24} sm={24} md={24} lg={8}>
-                    <LeftMenu />
-                </Col>
-                <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0 100px 0' }}>
-                    <List
-                        grid={{
-                            gutter: 0,
-                            xs: 2,
-                            sm: 3,
-                            md: 4,
-                            lg: 4,
-                            xl: 4,
-                            xxl: 4,
-                        }}
-                        dataSource={lookbooks}
-                        renderItem={(item) => (
-                            <List.Item>
-                                <LookbookCard key={item.id} {...item} />
-                            </List.Item>
-                        )}
-                    />
-                </Col>
-            </Row>
+            <LeftMenu />
+            <LookbookWrapper>
+                <LookbookThumbListWrapper>
+                    {lookbooks.map((lookbook) => (
+                        <LookbookCard key={lookbook.id} {...lookbook} />
+                    ))}
+                </LookbookThumbListWrapper>
+            </LookbookWrapper>
         </NavLayout>
     );
 }
+
+const LookbookWrapper = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px 0 0 0;
+    margin: 0 100px 120px 0;
+    margin-left: auto;
+    width: 60%;
+`;
+
+const LookbookThumbListWrapper = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 15px;
+    row-gap: 40px;
+
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+`;
+
+const LookbookThumbList = styled.div`
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+`;

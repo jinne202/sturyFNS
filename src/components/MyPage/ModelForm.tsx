@@ -161,7 +161,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
     return (
         <ModelFormWrapper onSubmit={handleSubmit}>
             <NameWrapper>
-                <SubTitle>이름</SubTitle>
+                <SubTitle>닉네임</SubTitle>
                 <ModelInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
             <RestWrapper>
