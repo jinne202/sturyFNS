@@ -3,7 +3,6 @@ import NavLayout from '../components/NavLayout';
 import LeftMenu from '../components/LeftMenu';
 import styled from 'styled-components';
 import SnapCard from '../components/SnapPage/SnapCard';
-import { Row, Col, List } from 'antd';
 
 const snaps = [
     { id: 1, title: 'title1', source: 'blue' },
@@ -20,33 +19,34 @@ const snaps = [
 export default function SnapIndex() {
     return (
         <NavLayout>
-            {/* <Row style={{ marginBottom: '100px' }}>
-                <Col xs={24} sm={24} md={24} lg={8}>
-                    <LeftMenu />
-                </Col>
-                <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0px 100px 20px' }}>
-                    <List
-                        grid={{
-                            xs: 1,
-                            sm: 2,
-                            md: 3,
-                            lg: 3,
-                            xl: 3,
-                            xxl: 3,
-                        }}
-                        dataSource={snaps}
-                        renderItem={(item) => (
-                            <List.Item style={{ marginBottom: '-10px' }}>
-                                <SnapCard key={item.id} {...item} />
-                            </List.Item>
-                        )}
-                    />
-                </Col>
-            </Row> */}
             <LeftMenu />
-            {snaps.map((snap) => (
-                <SnapCard key={snap.id} {...snap} />
-            ))}
+            <JobWrapper>
+                <JobThumbListWrapper>
+                    {snaps.map((snap) => (
+                        <SnapCard key={snap.id} {...snap} />
+                    ))}
+                </JobThumbListWrapper>
+            </JobWrapper>
         </NavLayout>
     );
 }
+
+const JobWrapper = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px 0 0 0;
+    margin: 0 100px 0 0;
+    margin-left: auto;
+    width: 60%;
+`;
+
+const JobThumbListWrapper = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2px;
+    row-gap: 2px;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+`;

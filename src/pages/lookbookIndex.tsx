@@ -46,13 +46,7 @@ const LookbookThumbListWrapper = styled.div`
     grid-template-columns: repeat(4, 1fr);
     column-gap: 15px;
     row-gap: 40px;
-
-    flex-direction: row-reverse;
-    flex-wrap: wrap-reverse;
-`;
-
-const LookbookThumbList = styled.div`
-    display: flex;
+    margin-bottom: 100px;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 `;

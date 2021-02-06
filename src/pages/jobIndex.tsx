@@ -3,7 +3,6 @@ import NavLayout from '../components/NavLayout';
 import LeftMenu from '../components/LeftMenu';
 import styled from 'styled-components';
 import JobCard from '../components/JobPage/JobCard';
-import { Row, Col, List } from 'antd';
 
 const jobs = [
     { id: 1, title: 'title1', source: 'blue' },
@@ -21,33 +20,34 @@ const jobs = [
 export default function JobIndex() {
     return (
         <NavLayout>
-            <Row style={{ marginBottom: '100px' }}>
-                <Col xs={24} sm={24} md={24} lg={8}>
-                    <div>
-                        <LeftMenu />
-                    </div>
-                </Col>
-                <Col xs={24} sm={24} md={24} lg={14} style={{ margin: '98px 0px 100px 25px' }}>
-                    <List
-                        grid={{
-                            gutter: 0,
-                            xs: 1,
-                            sm: 2,
-                            md: 2,
-                            lg: 2,
-                            xl: 2,
-                            xxl: 2,
-                        }}
-                        dataSource={jobs}
-                        renderItem={(item) => (
-                            <List.Item>
-                                <JobCard key={item.id} {...item} />
-                            </List.Item>
-                        )}
-                    />
-                </Col>
-                <Col xs={24} sm={24} md={24} lg={2}></Col>
-            </Row>
+            <LeftMenu />
+            <JobWrapper>
+                <JobThumbListWrapper>
+                    {jobs.map((job) => (
+                        <JobCard key={job.id} {...job} />
+                    ))}
+                </JobThumbListWrapper>
+            </JobWrapper>
         </NavLayout>
     );
 }
+
+const JobWrapper = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px 0 0 0;
+    margin: 0 100px 0 0;
+    margin-left: auto;
+    width: 60%;
+`;
+
+const JobThumbListWrapper = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2px;
+    row-gap: 2px;
+    /* flex-direction: row-reverse;
+    flex-wrap: wrap-reverse; */
+`;
