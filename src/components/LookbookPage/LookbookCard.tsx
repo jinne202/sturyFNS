@@ -97,11 +97,12 @@ const LookbookCardContainer = styled.div`
     box-shadow: 0 0 22px rgba(0, 0, 0, 0.5);
 `;
 
-const LookbookTitle = styled(LookbookCardContainer)`
+const LookbookTitle = styled.div`
     height: 35px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: flex-end;
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0);
 `;
 
 const LookbookUserName = styled.h2`
@@ -123,7 +124,7 @@ const LookbookLike = styled.h2`
         font-family: Noto Sans KR;
         font-weight: normal;
         font-size: 18px;
-        line-height: 26px;
+        line-height: 28px;
     }
     svg {
         margin-left: 8px;
