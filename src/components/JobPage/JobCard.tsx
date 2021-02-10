@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const JobCard = (props: any) => {
     return (
         <JobCardContainer>
-            <img src="http://placehold.it/240x240" alt="jobImage" />
+            <Link href={`/viewjobcard/${124124}`}>
+                <a>
+                    <img src="http://placehold.it/240x240" alt="jobImage" />
+                </a>
+            </Link>
         </JobCardContainer>
     );
 };
@@ -14,7 +19,7 @@ const JobCardContainer = styled.div`
     color: ${({ theme }) => theme.mode.textColor};
     user-select: scale-down;
     margin-bottom: -50%;
-    & > img {
+    & > a > img {
         width: 100%;
         height: 50%;
     }

@@ -1,16 +1,15 @@
 import React from 'react';
 import NavLayout from '../../components/NavLayout';
-// import PhotographerUserPage from '../../components/UserPage/PhotographerUser';
-// import ModelUserPage from '../../components/UserPage/ModelUser';
-import BrandUserPage from '../../components/UserPage/BrandUser';
-// import { useRouter } from 'next/router';
+import ViewInsta from '../../components/ViewPage/ViewInsta';
 
-const userMyPage = () => {
+const ViewLookbook = ({ lookbook }: any) => {
+    console.log(lookbook);
+
     return (
         <NavLayout>
-            <BrandUserPage />
+            <ViewInsta />
         </NavLayout>
     );
 };
 
-export default userMyPage;
+export default ViewLookbook;
