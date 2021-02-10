@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LookbookCard = (props: any) => {
+const SnapCard = (props: any) => {
     return (
-        <JobCardContainer>
-            <img src="http://placehold.it/240x240" alt="jobImage" />
-        </JobCardContainer>
+        <SnapCardContainer>
+            <img src="http://placehold.it/240x240" alt="snapImage" />
+        </SnapCardContainer>
     );
 };
 
-const JobCardContainer = styled.div`
+const SnapCardContainer = styled.div`
     cursor: pointer;
     color: ${({ theme }) => theme.mode.textColor};
     user-select: scale-down;
@@ -20,4 +20,4 @@ const JobCardContainer = styled.div`
     }
 `;
 
-export default LookbookCard;
+export default SnapCard;
