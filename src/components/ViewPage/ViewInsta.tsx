@@ -21,14 +21,14 @@ const ViewInsta: React.SFC<ViewInstaProps> = (props: any) => {
                 <InstaPostTable />
             </MyInfo>
             <ButtonWrapper>
-                <LoginButton type="submit">모델에게 문의하기</LoginButton>
+                <Button type="submit">모델에게 문의하기</Button>
             </ButtonWrapper>
         </UserMyPageWrapper>
     );
 };
 
 const UserMyPageWrapper = styled.div`
-    margin: 0 100px 200px;
+    margin: 0 100px;
 `;
 
 const MyCard = styled.div`
@@ -73,10 +73,9 @@ const ButtonWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 0 100px 0;
 `;
 
-const LoginButton = styled.button`
+const Button = styled.button`
     cursor: pointer;
     width: calc(100% / 4);
     text-align: center;

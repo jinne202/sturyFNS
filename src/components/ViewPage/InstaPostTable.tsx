@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 export interface InstaPostTableProps {}
 
@@ -9,7 +9,7 @@ const InstaPostTable: React.SFC<InstaPostTableProps> = (props: any) => {
     return (
         <InstaPostTableContainer>
             <button>
-                <AiOutlineArrowLeft />
+                <BsChevronLeft style={{ width: '75px', height: '100px' }} />
             </button>
             <PostWrapper>
                 <Link href={`/instagram/${1}`}>
@@ -34,7 +34,7 @@ const InstaPostTable: React.SFC<InstaPostTableProps> = (props: any) => {
                 </Link>
             </PostWrapper>
             <button>
-                <AiOutlineArrowRight />
+                <BsChevronRight style={{ width: '75px', height: '100px' }} />
             </button>
         </InstaPostTableContainer>
     );
@@ -47,9 +47,11 @@ const InstaPostTableContainer = styled.div`
     color: ${({ theme }) => theme.mode.textColor};
 
     & > button {
+        background-color: transparent;
+        border: transparent;
         margin-top: auto;
         margin-bottom: auto;
-        height: 50px;
+        height: 95px;
     }
 `;
 
