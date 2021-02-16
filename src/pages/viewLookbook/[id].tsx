@@ -2,14 +2,16 @@ import React from 'react';
 import NavLayout from '../../components/NavLayout';
 import ViewInsta from '../../components/ViewPage/ViewInsta';
 import styled from 'styled-components';
-import LikeShare from '../../components/ViewPage/LikeShare';
+import LikeBookmark from '../../components/ViewPage/LikeBookmark';
 
 const ViewLookbook = ({ lookbook }: any) => {
     console.log(lookbook);
 
     return (
         <NavLayout>
-            <LikeShare />
+            <FloatingButtonWrapper>
+                <LikeBookmark />
+            </FloatingButtonWrapper>
             <ContentsWrapper>
                 <TitleWrapper>타이틀</TitleWrapper>
                 <div>
@@ -33,12 +35,30 @@ const ViewLookbook = ({ lookbook }: any) => {
     );
 };
 
+const FloatingButtonWrapper = styled.div`
+    position: fixed;
+    overflow: hidden;
+    right: 15px;
+    bottom: 15px;
+    width: 45px;
+    height: 138px;
+    border-radius: 100px;
+    border: 4px solid ${({ theme }) => theme.mode.borderColor};
+    transition: 0.4s all;
+    background: transparent;
+    top: 63%;
+    left: 108%;
+    margin-top: -100px; /* Negative half of height. */
+    margin-left: -250px; /* Negative half of width. */
+`;
+
 const ContentsWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 140px 0 100px 0;
+    color: ${({ theme }) => theme.mode.textColor};
     & > div {
         & > img {
             height: 700px;
