@@ -25,6 +25,11 @@ const ViewLookbook = ({ lookbook }: any) => {
                     맘을 한가득 담아서 조금씩 은은히 줄거야 너와 나 손끝이 닿을 때 Eyes on me 에디터 최대한 구현
                 </span>
             </ContentsWrapper>
+            <TagButtonWrapper>
+                <button>#태그입력</button>
+                <button>#태그입력</button>
+                <button>#태그입력</button>
+            </TagButtonWrapper>
             <WrapperBorder />
             <ViewInsta />
             <ButtonWrapper>
@@ -59,12 +64,14 @@ const ContentsWrapper = styled.div`
     align-items: center;
     padding: 140px 0 100px 0;
     color: ${({ theme }) => theme.mode.textColor};
+
     & > div {
         & > img {
             height: 700px;
             width: 700px;
         }
     }
+
     & > span {
         height: 72px;
         width: 700px;
@@ -77,7 +84,8 @@ const TitleWrapper = styled.div`
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: bold;
-    font-size: 64px;
+    /* 글씨 크기 * 1/2  */
+    font-size: 32px;
     line-height: 93px;
 `;
 
@@ -85,6 +93,30 @@ const WrapperBorder = styled.div`
     margin: 0 100px;
     width: 90%;
     border: 4px solid ${({ theme }) => theme.mode.borderColor};
+`;
+
+const TagButtonWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 140px 0 188px 0;
+    width: 100%;
+    height: 136px;
+    margin-left: 200px;
+
+    & > button {
+        width: 100px;
+        height: 34px;
+        background-color: ${({ theme }) => theme.mode.containerColor};
+        color: ${({ theme }) => theme.mode.buttonTextColor};
+        border-radius: 50px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: normal;
+        /* 글씨 크기 20  */
+        font-size: 12px;
+        line-height: 29px;
+        margin-left: 20px;
+    }
 `;
 
 const ButtonWrapper = styled.div`
@@ -100,6 +132,12 @@ const ButtonWrapper = styled.div`
         border-bottom: 4px solid black;
         border-left: 0px;
         border-right: 0px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: bold;
+        /* 글씨 크기 * 1/2  */
+        font-size: 18px;
+        line-height: 52px;
     }
 `;
 

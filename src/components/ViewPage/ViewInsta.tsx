@@ -80,7 +80,6 @@ const Button = styled.button`
     width: calc(100% / 4);
     text-align: center;
     height: 84px;
-
     font-size: 24px;
     font-weight: 600;
     background-color: ${({ theme }) => theme.mode.containerColor};
