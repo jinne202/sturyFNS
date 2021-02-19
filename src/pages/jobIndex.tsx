@@ -48,6 +48,4 @@ const JobThumbListWrapper = styled.div`
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2px;
     row-gap: 2px;
-    /* flex-direction: row-reverse;
-    flex-wrap: wrap-reverse; */
 `;

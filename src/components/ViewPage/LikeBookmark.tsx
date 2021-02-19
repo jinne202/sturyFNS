@@ -25,6 +25,7 @@ const LikeBookmarkWrapper = styled.div`
     padding-top: 30px;
     padding-left: 8px;
     color: ${({ theme }) => theme.mode.textColor};
+    background-color: ${({ theme }) => theme.mode.buttonTextColor};
     & > div {
         cursor: pointer;
         height: 7vh;
