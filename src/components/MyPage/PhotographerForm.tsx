@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 type PhotographerFormProps = {
     onSubmit: (photographerForm: { name: string; location: string; snsAddress: string; intro: string }) => void;
-
 };
 // @ : Name
 export const nameCheckRgx = (name: string) => {
@@ -34,7 +33,6 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
     });
 
     const { name, location, snsAddress, intro } = photographerForm;
-
 
     const onChange = (e: any) => {
         const { name, value } = e.target;
@@ -96,7 +94,7 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
     return (
         <PhotographerFormWrapper onSubmit={handleSubmit}>
             <NameWrapper>
-                <SubTitle>이름</SubTitle>
+                <SubTitle>닉네임</SubTitle>
                 <PhotographerInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
             <LocationWrapper>

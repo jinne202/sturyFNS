@@ -111,7 +111,7 @@ const BrandFormWrapper = styled.form`
     display: grid;
     align-items: center; /* 수직 가운데 정렬 */
     justify-content: center; /* 수평 가운데 정렬 */
-    line-height: 52px;
+    line-height: 32px;
 `;
 
 const NameWrapper = styled.div`
@@ -140,7 +140,7 @@ const HomePageURLWrapper = styled.div`
 
 const SubTitle = styled.p`
     width: 200px;
-    display : block;
+    display: block;
     font-size: 20px;
     font-weight: 700;
     color: ${({ theme }) => theme.mode.textColor};
@@ -150,7 +150,6 @@ const SubTitle = styled.p`
 const BrandInput = styled.input`
     width: 564px;
     font-size: 20px;
-    line-height: 200%;
     border: none;
     border-bottom: 4px solid ${({ theme }) => theme.mode.borderColor};
     background-color: ${({ theme }) => theme.mode.mainBg};
@@ -171,7 +170,7 @@ const IdentificationButton = styled.button`
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};
     border: 4px solid ${({ theme }) => theme.mode.borderColor};
-    margin: -12px 0 0 53px;
+    margin: 0 0 0 53px;
     padding: 0 0 10px 0;
 
     &:focus {

@@ -20,37 +20,33 @@ export default function SnapIndex() {
     return (
         <NavLayout>
             <LeftMenu />
-            <SnapWrapper>
-                <SnapThumbListWrapper>
-                    <SnapThumbList>
-                        {snaps.map((snap) => (
-                            <SnapCard key={snap.id} {...snap} />
-                        ))}
-                    </SnapThumbList>
-                </SnapThumbListWrapper>
-            </SnapWrapper>
+            <JobWrapper>
+                <JobThumbListWrapper>
+                    {snaps.map((snap) => (
+                        <SnapCard key={snap.id} {...snap} />
+                    ))}
+                </JobThumbListWrapper>
+            </JobWrapper>
         </NavLayout>
     );
 }
 
-const SnapWrapper = styled.div`
+const JobWrapper = styled.div`
     position: relative;
     display: flex;
     justify-content: flex-end;
-    padding: 78px 0 0 0;
-    margin: 0 100px 64px 0;
+    padding: 40px 0 0 0;
+    margin: 0 100px 0 0;
     margin-left: auto;
-    width: 70%;
+    width: 60%;
 `;
 
-const SnapThumbListWrapper = styled.div`
+const JobThumbListWrapper = styled.div`
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
-`;
-
-const SnapThumbList = styled.div`
-    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2px;
+    row-gap: 2px;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 `;

@@ -21,9 +21,9 @@ export default function LookBookIndex() {
             <LeftMenu />
             <LookbookWrapper>
                 <LookbookThumbListWrapper>
-                        {lookbooks.map((lookbook) => (
-                            <LookbookCard key={lookbook.id} {...lookbook} />
-                        ))}
+                    {lookbooks.map((lookbook) => (
+                        <LookbookCard key={lookbook.id} {...lookbook} />
+                    ))}
                 </LookbookThumbListWrapper>
             </LookbookWrapper>
         </NavLayout>
@@ -37,22 +37,16 @@ const LookbookWrapper = styled.div`
     padding: 40px 0 0 0;
     margin: 0 100px 120px 0;
     margin-left: auto;
-    width: 70%;
+    width: 60%;
 `;
 
 const LookbookThumbListWrapper = styled.div`
-    width : 100%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 15px;
-    row-gap : 40px;
-    
-    flex-direction: row-reverse;
-    flex-wrap: wrap-reverse;
-`;
-
-const LookbookThumbList = styled.div`
-    display: flex;
+    row-gap: 40px;
+    margin-bottom: 100px;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 `;
