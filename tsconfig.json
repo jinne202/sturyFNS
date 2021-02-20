@@ -32,7 +32,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/h.js"  ],
+, "src/pages/h.js", "src/components/MessagePage/dummyMessage.js"  ],
   "exclude": [
     "node_modules"
   ]
