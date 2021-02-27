@@ -22,25 +22,27 @@ const searchIcon = <svg width="30" height="30" viewBox="0 0 48 48" fill="none" x
 
 const MessagePage = () => {
     return (
-        <MessageWrapper>
-            <MessageTitle>
-                <IconWrapper>
-                    {messageIcon}
-                </IconWrapper>
-                <h2>MESSAGE</h2>
-            </MessageTitle>
-            <SearchWrapper>
-                <SearchBox/>
-                <SearchIconWrapper>
-                    {searchIcon}
-                </SearchIconWrapper>
-            </SearchWrapper>
-            <MessageTable>
-                {dummyMessage.map((message : any) => (
-                    <MessageCard key={message.id} {...message}/>
-                ))}
-            </MessageTable>
-        </MessageWrapper>
+        <>
+            <MessageWrapper>
+                <MessageTitle>
+                    <IconWrapper>
+                        {messageIcon}
+                    </IconWrapper>
+                    <h2>MESSAGE</h2>
+                </MessageTitle>
+                <SearchWrapper>
+                    <SearchBox/>
+                    <SearchIconWrapper>
+                        {searchIcon}
+                    </SearchIconWrapper>
+                </SearchWrapper>
+                <MessageTable>
+                    {dummyMessage.map((message : any) => (
+                        <MessageCard key={message.id} {...message}/>
+                    ))}
+                </MessageTable>
+            </MessageWrapper>
+        </>
     )
 }
 
