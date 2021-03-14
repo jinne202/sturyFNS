@@ -1,13 +1,21 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { showMessageRequest } from '../../reducers/layoutReducer';
 
 const MessageCard = ( props : any ) => {
+    const dispatch = useDispatch();
+
+    const handleSubmitMessage = () => {
+        dispatch(showMessageRequest());
+    }
+
     return (
         <MessageCardContainer>
             <MessageUser>{props.me ? <ToUser>TO.{props.user}</ToUser> : <FromUser>FROM.{props.user}</FromUser>} </MessageUser>
             <MessageDescription>{props.description}</MessageDescription>
             <MessageDate>{props.date}</MessageDate>
-            {props.me ? <ReplyButton>답장</ReplyButton> : <div></div>}
+            {props.me ? <ReplyButton onClick={handleSubmitMessage}>답장</ReplyButton> : <div></div>}
         </MessageCardContainer>
     )
 }

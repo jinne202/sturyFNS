@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import NavLayout from '../components/NavLayout';
 import LoginForm from '../components/RegisterPage/LoginForm';
 import SNSLogin from '../components/RegisterPage/SNSLogin';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginRequestAction } from '../reducers/userReducer';
 
 export default function Login(){
 
-    const onSubmit = (loginForm: { email: string; password: string }) => {
+    const dispatch = useDispatch();
+    
+    const onSubmit = useCallback((loginForm: { email: string; password: string }) => {
         console.log(loginForm);
-    };
+        dispatch(loginRequestAction({
+            loginForm,
+        }));
+    }, []);
 
     return (
         <NavLayout>

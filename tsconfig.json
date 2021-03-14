@@ -33,7 +33,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/pages/h.js", "src/components/MessagePage/dummyMessage.js"  ],
+, "src/pages/h.js", "src/components/MessagePage/dummyMessage.js", "src/store/configureStore.js"  ],
   "exclude": [
     "node_modules"
   ]

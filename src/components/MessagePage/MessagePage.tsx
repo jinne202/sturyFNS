@@ -1,6 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import MessageCard from './MessageCard';
+import MessageModal from './MessageModal';
 
 const dummyMessage = [
     {id : 1, user : "김땡땡", description : "가나다라마바사", me : false, date : "21-01-21"},
@@ -21,8 +23,13 @@ const searchIcon = <svg width="30" height="30" viewBox="0 0 48 48" fill="none" x
 
 
 const MessagePage = () => {
+
+
+    const { showMessage } = useSelector((state: any) => state.layoutReducer);
+
     return (
         <>
+            {showMessage ? <MessageModal/> : <></>}
             <MessageWrapper>
                 <MessageTitle>
                     <IconWrapper>
