@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type PhotographerFormProps = {
@@ -140,7 +140,7 @@ const HomePageURLWrapper = styled.div`
 
 const SubTitle = styled.p`
     width: 200px;
-    display : block;
+    display: block;
     font-size: 20px;
     font-weight: 700;
     color: ${({ theme }) => theme.mode.textColor};

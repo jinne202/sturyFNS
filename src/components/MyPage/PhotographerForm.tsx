@@ -1,9 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type PhotographerFormProps = {
     onSubmit: (photographerForm: { name: string; location: string; snsAddress: string; intro: string }) => void;
-
 };
 // @ : Name
 export const nameCheckRgx = (name: string) => {
@@ -34,7 +33,6 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
     });
 
     const { name, location, snsAddress, intro } = photographerForm;
-
 
     const onChange = (e: any) => {
         const { name, value } = e.target;

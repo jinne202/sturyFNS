@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type ModelFormProps = {
@@ -75,7 +75,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
         awards: '',
     });
 
-    const { name, gender, height, weight, bust, waist, hip, shoes, snsAddress, awards } = modelForm;
+    const { name, height, weight, bust, waist, hip, shoes, snsAddress, awards } = modelForm;
 
     const onChange = (e: any) => {
         const { name, value } = e.target;

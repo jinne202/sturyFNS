@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SnapCard = (props: any) => {
+const SnapCard = () => {
     return (
         <SnapCardContainer>
             <img src="http://via.placeholder.com/300.png/09f/fff" alt="snapImage" />
@@ -18,7 +18,5 @@ const SnapCardContainer = styled.div`
         height: 100%;
     }
 `;
-
-const SnapTitle = styled.h2``;
 
 export default SnapCard;
