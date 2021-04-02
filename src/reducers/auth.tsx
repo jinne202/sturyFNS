@@ -14,16 +14,18 @@ const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes('auth/LOG
 
 export const changeField = createAction(CHANGE_FIELD, ({ form, key, value }: any) => ({
     form, // register , login
-    key, // username, password, passwordConfirm
+    key, // nickname, password, passwordConfirm
     value, // 실제 바꾸려는 값
 }));
 export const initializeForm = createAction(INITIALIZE_FORM, (form: any) => form); // register / login
-export const register = createAction(REGISTER, ({ username, password }: any) => ({
-    username,
+export const register = createAction(REGISTER, ({ type, email, nickname, password }: any) => ({
+    type,
+    email,
+    nickname,
     password,
 }));
-export const login = createAction(LOGIN, ({ username, password }: any) => ({
-    username,
+export const login = createAction(LOGIN, ({ email, password }: any) => ({
+    email,
     password,
 }));
 
@@ -37,31 +39,25 @@ export function* authSaga() {
 
 const initialState: any = {
     register: {
-        username: '',
+        type: '일반 회원',
+        email: '',
+        nickname: '',
         password: '',
         passwordConfirm: '',
     },
     login: {
-        username: '',
+        email: '',
         password: '',
     },
     auth: null,
     authError: null,
 };
 
-interface formRegiObj {
-    [key: string]: number | string;
-}
-
-interface formLoginObj {
-    [key: string]: number | string;
-}
-
 const auth = handleActions(
     {
         [CHANGE_FIELD]: (state: any, { payload: { form, key, value } }: any) =>
             produce(state, (draft: any) => {
-                draft[form][key] = value; // 예: state.register.username을 바꾼다
+                draft[form][key] = value; // 예: state.register.nickname을 바꾼다
             }),
         [INITIALIZE_FORM]: (state: any, { payload: form }: any) => ({
             ...state,
