@@ -1,8 +1,9 @@
+// @ts-ignore
 import { createAction, handleActions } from 'redux-actions';
 import produce from 'immer';
 import { takeLatest } from 'redux-saga/effects';
 import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
-// import * as authAPI from '../lib/api/auth'; basic
+import * as authAPI from '../lib/api/auth';
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
 const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
@@ -27,8 +28,8 @@ export const login = createAction(LOGIN, ({ username, password }: any) => ({
 }));
 
 // saga 생성
-const registerSaga = createRequestSaga(REGISTER, basic.register);
-const loginSaga = createRequestSaga(LOGIN, basic.login);
+const registerSaga = createRequestSaga(REGISTER, authAPI.register);
+const loginSaga = createRequestSaga(LOGIN, authAPI.login);
 export function* authSaga() {
     yield takeLatest(REGISTER, registerSaga);
     yield takeLatest(LOGIN, loginSaga);

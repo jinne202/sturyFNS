@@ -1,5 +1,5 @@
 import { call, put } from 'typed-redux-saga';
-import { startLoading, finishLoading } from '../modules/loading';
+import { startLoading, finishLoading } from '../reducers/loading';
 
 export const createRequestActionTypes = (type: any) => {
     const SUCCESS = `${type}_SUCCESS`;
