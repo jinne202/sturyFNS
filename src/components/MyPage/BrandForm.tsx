@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type PhotographerFormProps = {
-    onSubmit: (brandForm: { name: string; brandName: string; brandEmail: string; homePageUrl: string }) => void;
+    onSubmit: (brandForm: { nickname: string; brandName: string; brandEmail: string; homePageUrl: string }) => void;
 };
-// @ : Name
-export const nameCheckRgx = (name: string) => {
+// @ : nickname
+export const nicknameCheckRgx = (nickname: string) => {
     // 한글 또는 영문 사용하기(혼용X)
-    const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
-    return nameCheckRegex.test(name);
+    const nicknameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return nicknameCheckRegex.test(nickname);
 };
 // @ : BrandName
 // export const brandNameCheckRgx = (brandName: string) => {
@@ -28,13 +28,13 @@ export const homePageUrlCheckRgx = (homePageUrl: string) => {
 
 function BrandForm({ onSubmit }: PhotographerFormProps) {
     const [brandForm, setBrandForm] = useState({
-        name: '',
+        nickname: '',
         brandName: '',
         brandEmail: '',
         homePageUrl: '',
     });
 
-    const { name, brandName, brandEmail, homePageUrl } = brandForm;
+    const { nickname, brandName, brandEmail, homePageUrl } = brandForm;
 
     const onChange = (e: any) => {
         const { name, value } = e.target;
@@ -52,7 +52,7 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
         }
         onSubmit(brandForm);
         setBrandForm({
-            name: '',
+            nickname: '',
             brandName: '',
             brandEmail: '',
             homePageUrl: '',
@@ -61,7 +61,7 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
     };
 
     const isEveryValid = () => {
-        return nameCheckRgx(name) && brandEmailCheckRgx(brandEmail) && homePageUrlCheckRgx(homePageUrl);
+        return nicknameCheckRgx(nickname) && brandEmailCheckRgx(brandEmail) && homePageUrlCheckRgx(homePageUrl);
     };
 
     const onClick = (e: any) => {
@@ -79,10 +79,10 @@ function BrandForm({ onSubmit }: PhotographerFormProps) {
 
     return (
         <BrandFormWrapper onSubmit={handleSubmit}>
-            <NameWrapper>
-                <SubTitle>이름</SubTitle>
-                <BrandInput name="name" value={name} onChange={onChange} required />
-            </NameWrapper>
+            <NicknameWrapper>
+                <SubTitle>닉네임</SubTitle>
+                <BrandInput name="nickname" value={nickname} onChange={onChange} required />
+            </NicknameWrapper>
             <CompanyNameWrapper>
                 <SubTitle>회사명</SubTitle>
                 <BrandInput name="brandName" value={brandName} onChange={onChange} required />
@@ -114,7 +114,7 @@ const BrandFormWrapper = styled.form`
     line-height: 52px;
 `;
 
-const NameWrapper = styled.div`
+const NicknameWrapper = styled.div`
     display: flex;
     margin: 205px 0 0 0;
     height: 52px;
