@@ -48,7 +48,7 @@ const LookbookTitle = styled.div`
 const LookbookUserName = styled.h2`
     margin: 5px 0 0 0;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 35px;
 `;
 

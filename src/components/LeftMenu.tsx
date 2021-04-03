@@ -50,6 +50,7 @@ const LeftMenuWrapper = styled.div`
     margin: 20px 0 0 0;
     position: absolute;
     width: 30%;
+    z-index : 1;
 `;
 
 const MenuTitleWrapper = styled.div`

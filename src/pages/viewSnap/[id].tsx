@@ -13,16 +13,16 @@ const ViewSnap = ({ snap }: any) => {
             </FloatingButtonWrapper>
             <ContentsWrapper>
                 <TitleWrapper>타이틀</TitleWrapper>
-                <div>
+                <ImgWrapper>
                     <img src="http://placehold.it/240x240" alt="snapImage" />
-                </div>
-                <div>
+                </ImgWrapper>
+                <ImgWrapper>
                     <img src="http://placehold.it/240x240" alt="snapImage" />
-                </div>
-                <span>
+                </ImgWrapper>
+                <Paragraph>
                     Shoot! Take a Panorama 바람 끝에 찾아온 작은 기억 귓가에 퍼지는 깊은 울림 Ring my bell 아름다운 내
                     맘을 한가득 담아서 조금씩 은은히 줄거야 너와 나 손끝이 닿을 때 Eyes on me 에디터 최대한 구현
-                </span>
+                </Paragraph>
             </ContentsWrapper>
             <TagButtonWrapper>
                 <button>#태그입력</button>
@@ -66,22 +66,22 @@ const ContentsWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 140px 0 100px 0;
+    margin : 80px 200px 0;
     color: ${({ theme }) => theme.mode.textColor};
-
-    & > div {
-        & > img {
-            width: 1280px;
-            height: 700px;
-        }
-    }
-
-    & > span {
-        height: 72px;
-        width: 700px;
-        margin-top: 78px;
-    }
 `;
+
+const Paragraph = styled.div`
+    text-aligh : left;
+    margin : 70px 0 0 0;
+`
+
+const ImgWrapper = styled.div`  
+    width : 100%;
+
+    & > img { 
+        width : 100%;
+    }
+`
 
 const TitleWrapper = styled.div`
     margin: 0 0 91px 0;
@@ -105,6 +105,7 @@ const TagButtonWrapper = styled.div`
     & > button {
         width: 100px;
         height: 34px;
+        border : 0;
         background-color: ${({ theme }) => theme.mode.containerColor};
         color: ${({ theme }) => theme.mode.buttonTextColor};
         border-radius: 50px;
@@ -114,7 +115,7 @@ const TagButtonWrapper = styled.div`
         /* 글씨 크기 20  */
         font-size: 12px;
         line-height: 29px;
-        margin-left: 20px;
+        margin-right : 20px;
     }
 `;
 

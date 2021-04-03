@@ -13,20 +13,22 @@ const ViewJob = ({ snap }: any) => {
             </FloatingButtonWrapper>
             <ContentsWrapper>
                 <TitleWrapper>타이틀</TitleWrapper>
-                <div>
-                    <img src="http://placehold.it/240x240" alt="thumbnailImage" />
-                    <div>
+                <ThumbWrapper>
+                    <ThumbImgWrapper>
+                        <img src="http://placehold.it/240x240" alt="thumbnailImage" />
+                    </ThumbImgWrapper>
+                    <InfoWrapper>
                         <img src="http://placehold.it/240x240" alt="logoImage" />
                         <h2>브랜드명</h2>
                         <p>브랜드 한줄 소개</p>
                         <button>지원하기</button>
-                    </div>
-                </div>
+                    </InfoWrapper>
+                </ThumbWrapper>
 
-                <span>
+                <Paragraph>
                     Shoot! Take a Panorama 바람 끝에 찾아온 작은 기억 귓가에 퍼지는 깊은 울림 Ring my bell 아름다운 내
                     맘을 한가득 담아서 조금씩 은은히 줄거야 너와 나 손끝이 닿을 때 Eyes on me 에디터 최대한 구현
-                </span>
+                </Paragraph>
             </ContentsWrapper>
             <TagButtonWrapper>
                 <button>#태그입력</button>
@@ -70,6 +72,7 @@ const FloatingButtonWrapper = styled.div`
 `;
 
 const ContentsWrapper = styled.div`
+    margin : 0 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,78 +81,10 @@ const ContentsWrapper = styled.div`
     padding: 140px 0 100px 0;
     font-family: Noto Sans KR;
     font-style: normal;
-
-    & > div {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        & > img {
-            width: 700px;
-            height: 700px;
-            margin: 87px 0 0 120px;
-        }
-        & > div {
-            width: 350px;
-            height: 700px;
-            margin: 87px 120px 0 30px;
-            padding: 80px 75px;
-            border: 4px solid ${({ theme }) => theme.mode.borderColor};
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            & > img {
-                width: 200px;
-                height: 200px;
-                border-radius: 200px;
-                margin-bottom: 60px;
-            }
-
-            & > h2 {
-                font-weight: bold;
-                font-size: 36px;
-                line-height: 52px;
-                margin-bottom: 26px;
-            }
-
-            & > p {
-                font-weight: normal;
-                font-size: 24px;
-                line-height: 35px;
-                padding-bottom: 63px;
-            }
-
-            & > button {
-                cursor: pointer;
-                width: 260px;
-                height: 60px;
-                font-family: Noto Sans KR;
-                font-weight: bold;
-                font-size: 20px;
-                border-radius: 50px;
-                background-color: ${({ theme }) => theme.mode.containerColor};
-                color: ${({ theme }) => theme.mode.buttonTextColor};
-                border: 4px solid ${({ theme }) => theme.mode.borderColor};
-
-                &:focus {
-                    outline: none;
-                }
-            }
-        }
-    }
-
-    & > span {
-        height: 72px;
-        width: 500px;
-        margin-top: 78px;
-    }
 `;
 
 const TitleWrapper = styled.div`
-    margin: 0 0 0 0;
+    margin: 0 0 40px 0;
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: bold;
@@ -162,13 +97,13 @@ const TagButtonWrapper = styled.div`
     display: flex;
     align-items: center;
     padding: 140px 0 188px 0;
-    width: 100%;
     height: 136px;
     margin-left: 200px;
 
     & > button {
         width: 100px;
         height: 34px;
+        border : 0;
         background-color: ${({ theme }) => theme.mode.containerColor};
         color: ${({ theme }) => theme.mode.buttonTextColor};
         border-radius: 50px;
@@ -178,15 +113,84 @@ const TagButtonWrapper = styled.div`
         /* 글씨 크기 20  */
         font-size: 12px;
         line-height: 29px;
-        margin-left: 20px;
+        margin-right : 20px;
     }
 `;
 
+const ThumbWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const ThumbImgWrapper = styled.div`
+    width : 53%;
+    height : 500px;
+
+    & > img { 
+        width : 100%;
+        height : 100%;
+        object-fit:cover;
+    }
+`
+
+const InfoWrapper = styled.div`
+    width: 45%;
+    height: 500px;
+    border: 4px solid ${({ theme }) => theme.mode.borderColor};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > img {
+        width: 200px;
+        height: 200px;
+        border-radius: 200px;
+        margin : 20px 0 40px 0;
+    }
+
+    & > h2 {
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 52px;
+        margin : 0 0 10px 0;
+    }
+
+    & > p {
+        font-weight: normal;
+        font-size: 18px;
+        margin : 0 0 30px 0;
+    }
+
+    & > button {
+        cursor: pointer;
+        width: 200px;
+        height : 50px;
+        font-family: Noto Sans KR;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 50px;
+        background-color: ${({ theme }) => theme.mode.containerColor};
+        color: ${({ theme }) => theme.mode.buttonTextColor};
+        border: 4px solid ${({ theme }) => theme.mode.borderColor};
+
+        &:focus {
+            outline: none;
+        }
+    }
+`
+
 const WrapperBorder = styled.div`
     margin: 0 100px;
-    width: 90%;
     border: 4px solid ${({ theme }) => theme.mode.borderColor};
 `;
+
+const Paragraph = styled.div`
+    text-aligh : left;
+    margin : 70px 0 0 0;
+`
 
 const AdditionalInfo = styled.div`
     width: 100%;

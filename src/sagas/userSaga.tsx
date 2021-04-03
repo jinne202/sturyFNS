@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { all, fork, put, takeLatest, throttle, call, takeEvery } from 'redux-saga/effects';
+import { all, fork, put, call, takeEvery } from 'redux-saga/effects';
 import { LOG_IN_REQUEST, LOG_IN_SUCCESS, LOG_IN_FAILURE} from '../reducers/userReducer';
 
 function loginAPI(data:any) {
