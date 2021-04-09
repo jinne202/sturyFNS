@@ -6,23 +6,10 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequestAction } from '../reducers/userReducer';
 
-<<<<<<< HEAD
 export default function Login() {
     // const onSubmit = (loginForm: { email: string; password: string }) => {
     //     console.log(loginForm);
     // };
-=======
-export default function Login(){
-
-    const dispatch = useDispatch();
-    
-    const onSubmit = useCallback((loginForm: { email: string; password: string }) => {
-        console.log(loginForm);
-        dispatch(loginRequestAction({
-            loginForm,
-        }));
-    }, []);
->>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
 
     return (
         <NavLayout>
