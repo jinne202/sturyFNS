@@ -1,4 +1,4 @@
-import type { AppProps /*, AppContext */ } from 'next/app';
+import type { AppProps /*, AppContext */ } from 'next/app.js';
 import GlobalStyles from '../styles/global-styles';
 import wrapper from '../store/configureStore';
 import { ThemeProvider } from 'styled-components';

@@ -1,14 +1,18 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type PhotographerFormProps = {
+<<<<<<< HEAD
+    onSubmit: (photographerForm: { nickname: string; location: string; snsAddress: string; intro: string }) => void;
+=======
     onSubmit: (photographerForm: { name: string; location: string; snsAddress: string; intro: string }) => void;
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
 };
-// @ : Name
-export const nameCheckRgx = (name: string) => {
+// @ : nickname
+export const nicknameCheckRgx = (nickname: string) => {
     // 한글 또는 영문 사용하기(혼용X)
-    const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
-    return nameCheckRegex.test(name);
+    const nicknameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return nicknameCheckRegex.test(nickname);
 };
 // @ : Location
 export const locationCheckRgx = (location: string) => {
@@ -26,13 +30,17 @@ export const snsAddressCheckRgx = (snsAddress: string) => {
 
 function PhotographerForm({ onSubmit }: PhotographerFormProps) {
     const [photographerForm, setPhotographerForm] = useState({
-        name: '',
+        nickname: '',
         location: '',
         snsAddress: '',
         intro: '',
     });
 
+<<<<<<< HEAD
+    const { nickname, location, snsAddress, intro } = photographerForm;
+=======
     const { name, location, snsAddress, intro } = photographerForm;
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
 
     const onChange = (e: any) => {
         const { name, value } = e.target;
@@ -50,7 +58,7 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
         }
         onSubmit(photographerForm);
         setPhotographerForm({
-            name: '',
+            nickname: '',
             location: '',
             snsAddress: '',
             intro: '',
@@ -59,14 +67,14 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
     };
 
     const isEveryValid = () => {
-        if (nameCheckRgx(name) === false) {
+        if (nicknameCheckRgx(nickname) === false) {
             console.log(1);
         } else if (locationCheckRgx(location) === false) {
             console.log(2);
         } else if (snsAddressCheckRgx(intro) === false) {
             console.log(3);
         }
-        return nameCheckRgx(name) && locationCheckRgx(location) && snsAddressCheckRgx(snsAddress);
+        return nicknameCheckRgx(nickname) && locationCheckRgx(location) && snsAddressCheckRgx(snsAddress);
     };
     // @ : intro MaxLength
     const handleChangeInput = (e: any) => {
@@ -93,10 +101,17 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
 
     return (
         <PhotographerFormWrapper onSubmit={handleSubmit}>
+<<<<<<< HEAD
+            <NicknameWrapper>
+                <SubTitle>이름</SubTitle>
+                <PhotographerInput name="nickname" value={nickname} onChange={onChange} required />
+            </NicknameWrapper>
+=======
             <NameWrapper>
                 <SubTitle>닉네임</SubTitle>
                 <PhotographerInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
             <LocationWrapper>
                 <SubTitle>지역</SubTitle>
                 <PhotographerInput name="location" value={location} onChange={onChange} required />
@@ -129,7 +144,7 @@ const PhotographerFormWrapper = styled.form`
     line-height: 52px;
 `;
 
-const NameWrapper = styled.div`
+const NicknameWrapper = styled.div`
     display: flex;
     margin: 205px 0 0 0;
     width: 853px;

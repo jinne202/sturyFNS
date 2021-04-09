@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type ModelFormProps = {
     onSubmit: (modelForm: {
-        name: string;
+        nickname: string;
         gender: string;
         height: string;
         weight: string;
@@ -15,11 +15,11 @@ type ModelFormProps = {
         awards: string;
     }) => void;
 };
-// @ : Name .
-export const nameCheckRgx = (name: string) => {
+// @ : nickname .
+export const nicknameCheckRgx = (name: string) => {
     // 한글 또는 영문 사용하기(혼용X)
-    const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
-    return nameCheckRegex.test(name);
+    const nicknameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
+    return nicknameCheckRegex.test(name);
 };
 // @ : Gender
 
@@ -63,7 +63,7 @@ export const snsAddressCheckRgx = (snsAddress: string) => {
 
 function ModelForm({ onSubmit }: ModelFormProps) {
     const [modelForm, setModelForm] = useState({
-        name: '',
+        nickname: '',
         gender: '',
         height: '',
         weight: '',
@@ -75,7 +75,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
         awards: '',
     });
 
-    const { name, gender, height, weight, bust, waist, hip, shoes, snsAddress, awards } = modelForm;
+    const { nickname, height, weight, bust, waist, hip, shoes, snsAddress, awards } = modelForm;
 
     const onChange = (e: any) => {
         const { name, value } = e.target;
@@ -93,7 +93,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
         }
         onSubmit(modelForm);
         setModelForm({
-            name: '',
+            nickname: '',
             gender: '',
             height: '',
             weight: '',
@@ -108,7 +108,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
     };
 
     const isEveryValid = () => {
-        if (nameCheckRgx(name) === false) {
+        if (nicknameCheckRgx(nickname) === false) {
             console.log(1);
         } else if (heightCheckRgx(height) === false) {
             console.log(2);
@@ -128,7 +128,7 @@ function ModelForm({ onSubmit }: ModelFormProps) {
             console.log(9);
         }
         return (
-            nameCheckRgx(name) &&
+            nicknameCheckRgx(nickname) &&
             heightCheckRgx(height) &&
             weightCheckRgx(weight) &&
             bustCheckRgx(bust) &&
@@ -160,10 +160,17 @@ function ModelForm({ onSubmit }: ModelFormProps) {
 
     return (
         <ModelFormWrapper onSubmit={handleSubmit}>
+<<<<<<< HEAD
+            <NicknameWrapper>
+                <SubTitle>닉네임</SubTitle>
+                <ModelInput name="nickname" value={nickname} onChange={onChange} required />
+            </NicknameWrapper>
+=======
             <NameWrapper>
                 <SubTitle>닉네임</SubTitle>
                 <ModelInput name="name" value={name} onChange={onChange} required />
             </NameWrapper>
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
             <RestWrapper>
                 <SubTitle>성별</SubTitle>
                 <DropDownContainer>
@@ -228,7 +235,7 @@ const ModelFormWrapper = styled.form`
     line-height: 52px;
 `;
 
-const NameWrapper = styled.div`
+const NicknameWrapper = styled.div`
     display: flex;
     margin: 205px 0 0 0;
     width: 853px;
