@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import userSaga from './userSaga';
 
-axios.defaults.baseURL = "localhost/8080";
+axios.defaults.baseURL = "localhost/8000";
 // axios.interceptors.request.use(
 //     async config => {
 //         config.headers = {

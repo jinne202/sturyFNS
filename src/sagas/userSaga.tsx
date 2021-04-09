@@ -2,8 +2,8 @@ import axios from 'axios';
 import { all, fork, put, call, takeEvery } from 'redux-saga/effects';
 import { LOG_IN_REQUEST, LOG_IN_SUCCESS, LOG_IN_FAILURE} from '../reducers/userReducer';
 
-function loginAPI(data:any) {
-    return axios.post('/account/login', data)
+function* loginAPI(data:any) {
+    return axios.post('/login', data)
         .then(response => {
             localStorage.setItem('token', response.headers.authorization)
             console.log(response);

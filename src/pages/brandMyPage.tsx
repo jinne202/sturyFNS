@@ -27,7 +27,7 @@ const BrandMyPageWrapper = styled.div`
 
 const BrandMyPageTitle = styled.h2`
     text-align: center;
-    font-size: 96px;
+    font-size: 80px;
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
     color: ${({ theme }) => theme.mode.textColor};
