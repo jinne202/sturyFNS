@@ -6,6 +6,12 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequestAction } from '../reducers/userReducer';
 
+<<<<<<< HEAD
+export default function Login() {
+    // const onSubmit = (loginForm: { email: string; password: string }) => {
+    //     console.log(loginForm);
+    // };
+=======
 export default function Login(){
 
     const dispatch = useDispatch();
@@ -16,28 +22,29 @@ export default function Login(){
             loginForm,
         }));
     }, []);
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
 
     return (
         <NavLayout>
             <LoginWrapper>
                 <LoginTitle>Login</LoginTitle>
-                <LoginForm onSubmit={onSubmit}/>
-                <SNSLogin/>
+                <LoginForm />
+                <SNSLogin />
             </LoginWrapper>
         </NavLayout>
-    )
+    );
 }
 
 const LoginTitle = styled.h2`
-    font-size : 180px;
-    font-weight : 600;
+    font-size: 180px;
+    font-weight: 600;
     font-family: 'Poppins', sans-serif;
     color: ${({ theme }) => theme.mode.textColor};
-    margin : 53px 0 0 0;
-    line-height : 149.5%;
-`
+    margin: 53px 0 0 0;
+    line-height: 149.5%;
+`;
 
 const LoginWrapper = styled.div`
-    margin : 0 100px 100px;
+    margin: 0 100px 100px;
     font-family: 'Noto Sans KR', sans-serif;
-`
+`;

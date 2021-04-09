@@ -2,27 +2,27 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type GeneralFormProps = {
-    onSubmit: (generalForm: { name: string }) => void;
+    onSubmit: (generalForm: { nickname: string }) => void;
 };
 
-export const nameCheckRgx = (name: string) => {
+export const nicknameCheckRgx = (nickname: string) => {
     // 한글 또는 영문 사용하기(혼용X)
-    const nameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
-    return nameCheckRegex.test(name);
+    const nicknameCheckRegex = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // "|"를 사용
+    return nicknameCheckRegex.test(nickname);
 };
 
 function GeneralForm({ onSubmit }: GeneralFormProps) {
     const [generalForm, setGeneralForm] = useState({
-        name: '',
+        nickname: '',
     });
 
-    const { name } = generalForm;
+    const { nickname } = generalForm;
 
     const onChange = (e: any) => {
-        const { name, value } = e.target;
+        const { nickname, value } = e.target;
         setGeneralForm({
             ...generalForm,
-            [name]: value,
+            [nickname]: value,
         });
     };
 
@@ -33,12 +33,12 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
         }
         onSubmit(generalForm);
         setGeneralForm({
-            name: '',
+            nickname: '',
         }); // 초기화
     };
 
     const isEveryValid = () => {
-        return nameCheckRgx(name);
+        return nicknameCheckRgx(nickname);
     };
 
     const onClick = (e: any) => {
@@ -54,10 +54,23 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
 
     return (
         <GeneralFormWrapper onSubmit={handleSubmit}>
+<<<<<<< HEAD
+            <NicknameWrapper>
+                <SubTitle>닉네임</SubTitle>
+                <GeneralNicknameInput
+                    name="nickname"
+                    value={nickname}
+                    onChange={onChange}
+                    onKeyPress={onKeyPress}
+                    required
+                />
+            </NicknameWrapper>
+=======
             <NameWrapper>
                 <SubTitle>닉네임</SubTitle>
                 <GeneralNameInput name="name" value={name} onChange={onChange} onKeyPress={onKeyPress} required />
             </NameWrapper>
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
             <GeneralButton type="submit">등록하기</GeneralButton>
         </GeneralFormWrapper>
     );
@@ -70,7 +83,7 @@ const GeneralFormWrapper = styled.form`
     line-height: 52px;
 `;
 
-const NameWrapper = styled.div`
+const NicknameWrapper = styled.div`
     display: flex;
     margin: 192px 0 0 0;
     width: 600px;
@@ -86,7 +99,7 @@ const SubTitle = styled.p`
     line-height: 52px;
 `;
 
-const GeneralNameInput = styled.input`
+const GeneralNicknameInput = styled.input`
     width: 400px;
     font-size: 18px;
     line-height: 52px;

@@ -2,8 +2,9 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "outDir": "./dist",
+    "declaration": false,
+    // "outDir": "./dist",
+    "outDir": "./lib/",
     "strictNullChecks": true,
     "noImplicitThis": true,
 
@@ -29,6 +30,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
   },
+  "baseUrl": ".", // removed src from baseurl 
+  "paths": { // ensure paths were updated relative to base url 
+    "@static/*": ["./public/static/*"], 
+    "@generated/*": ["./src/__generated__/*"], src/store/configureStore.ts
+    "@*": ["./src*"] 
+    }, 
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -36,5 +43,9 @@
 , "src/pages/h.js", "src/components/MessagePage/dummyMessage.js", "src/store/configureStore.js"  ],
   "exclude": [
     "node_modules"
+  ],
+  "typeRoots": [
+    "../node_modules/@types",
+    "../@types"
   ]
 }

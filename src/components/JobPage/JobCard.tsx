@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-const JobCard = (props: any) => {
+const JobCard = () => {
     return (
         <JobCardContainer>
             <Link href={`/viewjobcard/${124124}`}>
