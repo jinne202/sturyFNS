@@ -23,11 +23,9 @@ export default function JobIndex() {
             <LeftMenu />
             <JobWrapper>
                 <JobThumbListWrapper>
-                    <JobThumbList>
-                        {jobs.map((job) => (
-                            <JobCard key={job.id} {...job} />
-                        ))}
-                    </JobThumbList>
+                    {jobs.map((job) => (
+                        <JobCard key={job.id} {...job} />
+                    ))}
                 </JobThumbListWrapper>
             </JobWrapper>
         </NavLayout>
@@ -38,20 +36,16 @@ const JobWrapper = styled.div`
     position: relative;
     display: flex;
     justify-content: flex-end;
-    padding: 78px 0px 82px 0px;
+    padding: 40px 0 0 0;
     margin: 0 100px 0 0;
     margin-left: auto;
-    width: 70%;
+    width: 60%;
 `;
 
 const JobThumbListWrapper = styled.div`
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(388px, 1fr));
-    grid-gap: 1rem;
-`;
-
-const JobThumbList = styled.div`
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap-reverse;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+    row-gap: 5px;
 `;

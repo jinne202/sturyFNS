@@ -19,6 +19,14 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  .ql-editor strong {
+    font-weight:bold;
+  }
+
+  .ql-editor em {
+    font-style : italic;
+  }
 `;
 
 export default GlobalStyle;

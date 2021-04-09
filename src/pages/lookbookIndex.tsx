@@ -37,7 +37,7 @@ const LookbookWrapper = styled.div`
     padding: 40px 0 0 0;
     margin: 0 100px 120px 0;
     margin-left: auto;
-    width: 70%;
+    width: 60%;
 `;
 
 const LookbookThumbListWrapper = styled.div`
@@ -46,7 +46,11 @@ const LookbookThumbListWrapper = styled.div`
     grid-template-columns: repeat(4, 1fr);
     column-gap: 15px;
     row-gap: 40px;
+<<<<<<< HEAD
 
+=======
+    margin-bottom: 100px;
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 `;

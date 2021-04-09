@@ -160,15 +160,22 @@ function ModelForm({ onSubmit }: ModelFormProps) {
 
     return (
         <ModelFormWrapper onSubmit={handleSubmit}>
+<<<<<<< HEAD
             <NicknameWrapper>
                 <SubTitle>닉네임</SubTitle>
                 <ModelInput name="nickname" value={nickname} onChange={onChange} required />
             </NicknameWrapper>
+=======
+            <NameWrapper>
+                <SubTitle>닉네임</SubTitle>
+                <ModelInput name="name" value={name} onChange={onChange} required />
+            </NameWrapper>
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
             <RestWrapper>
                 <SubTitle>성별</SubTitle>
                 <DropDownContainer>
                     <DropDownHeader onClick={toggling}>
-                        {selectedOption || '선택'}
+                        <div>{selectedOption || '선택'}</div>
                         <img src="/static/Polygon1.png" />
                     </DropDownHeader>
                     {isOpen && (
@@ -237,7 +244,7 @@ const NicknameWrapper = styled.div`
 
 const RestWrapper = styled.div`
     display: flex;
-    margin: 80px 0 0 0;
+    margin: 80px 10px 0 0;
     width: 853px;
     height: 52px;
 `;
@@ -245,7 +252,7 @@ const RestWrapper = styled.div`
 const SubTitle = styled.p`
     width: 68px;
     margin: 0 222px 0 0;
-    font-size: 36px;
+    font-size: 20px;
     font-weight: 700;
     color: ${({ theme }) => theme.mode.textColor};
     line-height: 52px;
@@ -254,7 +261,7 @@ const SubTitle = styled.p`
 const SubTitleTwo = styled.p`
     width: 149px;
     margin: 0 140px 0 0;
-    font-size: 36px;
+    font-size: 20px;
     font-weight: 700;
     color: ${({ theme }) => theme.mode.textColor};
     line-height: 52px;
@@ -290,16 +297,16 @@ const ModelInputAwards = styled.textarea`
 
 const ModelButton = styled.button`
     cursor: pointer;
-    width: 496px;
-    height: 84px;
+    width: 350px;
+    height: 60px;
     font-family: Noto Sans KR;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 20px;
     border-radius: 50px;
     background-color: ${({ theme }) => theme.mode.containerColor};
     color: ${({ theme }) => theme.mode.buttonTextColor};
     border: 4px solid ${({ theme }) => theme.mode.borderColor};
-    margin: 646px auto 0;
+    margin: 323px auto 0;
     box-sizing: border-box;
 
     &:focus {
@@ -320,13 +327,17 @@ const DropDownHeader = styled('div')`
     padding: 0.25em 0.25em 0.25em 0.25em;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     font-weight: 700;
-    font-size: 32px;
+    font-size: 20px;
     color: #000;
     background: #ffffff;
-    img {
-        margin: 0.4em 0.25em 0 0;
-        width: 30px;
-        height: 30px;
+
+    & > div {
+        margin-left: 10px;
+    }
+    & > img {
+        margin: 0.9em 0.25em 0 0;
+        width: 20px;
+        height: 20px;
         justify-content: center;
         align-items: center;
     }
@@ -339,12 +350,12 @@ const DropDownList = styled('ul')`
     width: 564px;
     padding: 0;
     margin: 0;
-    padding-left: 1em;
+    padding-left: 0.75em;
     background: #ffffff;
     border: 2px solid #e5e5e5;
     box-sizing: border-box;
     color: #000;
-    font-size: 1.3rem;
+    font-size: 20px;
     font-weight: 700;
     &:first-child {
         padding-top: 0.8em;

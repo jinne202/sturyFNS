@@ -54,6 +54,7 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
 
     return (
         <GeneralFormWrapper onSubmit={handleSubmit}>
+<<<<<<< HEAD
             <NicknameWrapper>
                 <SubTitle>닉네임</SubTitle>
                 <GeneralNicknameInput
@@ -64,6 +65,12 @@ function GeneralForm({ onSubmit }: GeneralFormProps) {
                     required
                 />
             </NicknameWrapper>
+=======
+            <NameWrapper>
+                <SubTitle>닉네임</SubTitle>
+                <GeneralNameInput name="name" value={name} onChange={onChange} onKeyPress={onKeyPress} required />
+            </NameWrapper>
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
             <GeneralButton type="submit">등록하기</GeneralButton>
         </GeneralFormWrapper>
     );

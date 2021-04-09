@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 type PhotographerFormProps = {
+<<<<<<< HEAD
     onSubmit: (photographerForm: { nickname: string; location: string; snsAddress: string; intro: string }) => void;
+=======
+    onSubmit: (photographerForm: { name: string; location: string; snsAddress: string; intro: string }) => void;
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
 };
 // @ : nickname
 export const nicknameCheckRgx = (nickname: string) => {
@@ -32,7 +36,11 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
         intro: '',
     });
 
+<<<<<<< HEAD
     const { nickname, location, snsAddress, intro } = photographerForm;
+=======
+    const { name, location, snsAddress, intro } = photographerForm;
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
 
     const onChange = (e: any) => {
         const { name, value } = e.target;
@@ -93,10 +101,17 @@ function PhotographerForm({ onSubmit }: PhotographerFormProps) {
 
     return (
         <PhotographerFormWrapper onSubmit={handleSubmit}>
+<<<<<<< HEAD
             <NicknameWrapper>
                 <SubTitle>이름</SubTitle>
                 <PhotographerInput name="nickname" value={nickname} onChange={onChange} required />
             </NicknameWrapper>
+=======
+            <NameWrapper>
+                <SubTitle>닉네임</SubTitle>
+                <PhotographerInput name="name" value={name} onChange={onChange} required />
+            </NameWrapper>
+>>>>>>> 70db809dabf6e696e82524ff1f96dc3964bde583
             <LocationWrapper>
                 <SubTitle>지역</SubTitle>
                 <PhotographerInput name="location" value={location} onChange={onChange} required />

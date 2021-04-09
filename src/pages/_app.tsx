@@ -4,6 +4,7 @@ import wrapper from '../store/configureStore';
 import { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { light, dark } from '../styles/theme';
+import 'antd/dist/antd.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const { themeMode } = useSelector((state: any) => state.layoutReducer);

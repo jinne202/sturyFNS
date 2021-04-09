@@ -1,22 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const JobCard = () => {
     return (
         <JobCardContainer>
-            <img src="http://via.placeholder.com/300.png/09f/fff" alt="JobImage" />
-            {/* <JobTitle>{props.title}</JobTitle> */}
+            <Link href={`/viewjobcard/${124124}`}>
+                <a>
+                    <img src="http://placehold.it/240x240" alt="jobImage" />
+                </a>
+            </Link>
         </JobCardContainer>
     );
 };
 
 const JobCardContainer = styled.div`
     cursor: pointer;
-    margin: 0px 0px 17px 15px;
     color: ${({ theme }) => theme.mode.textColor};
-    img {
-        width: 444px;
-        height: 200px;
+    user-select: scale-down;
+    margin-bottom: -50%;
+    & > a > img {
+        width: 100%;
+        height: 50%;
     }
 `;
 

@@ -23,26 +23,24 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext",
+    "target": "es6",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
+    "types": ["cypress", "node"],
     "resolveJsonModule": true,
     "isolatedModules": true,
   },
   "baseUrl": ".", // removed src from baseurl 
   "paths": { // ensure paths were updated relative to base url 
     "@static/*": ["./public/static/*"], 
-    "@generated/*": ["./src/__generated__/*"], 
+    "@generated/*": ["./src/__generated__/*"], src/store/configureStore.ts
     "@*": ["./src*"] 
     }, 
   "include": [
-//     "next-env.d.ts",
-//     "**/*.ts",
-//     "**/*.tsx"
-// , "src/pages/h.js"  
-"src", // add src directory to be included 
-      "next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "public",
-],
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "src/pages/h.js", "src/components/MessagePage/dummyMessage.js", "src/store/configureStore.js"  ],
   "exclude": [
     "node_modules"
   ],
